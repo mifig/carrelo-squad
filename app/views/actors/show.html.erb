@@ -1,0 +1,45 @@
+<div class="actor-show-container margin-top-show">
+  <div class="actor-img-col">
+    <div class="actor-img-border"></div>
+    <%= cl_image_tag @actor.primary_photo.key, class: "actor-img" %>
+  </div>
+
+  <div class="actor-infos-col">
+    <h1 class="actor-name mb-0 mt-5 mx-5"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
+    <div class="position-relative py-4 px-5" style="min-height: 175px">
+      <p class="category-title">_________ BIO</p>
+      <p class="actor-bio actor-p m-0"><%= @actor.bio %></p>
+    </div>
+    
+    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
+      <p class="category-title">_________ INFO</p>
+      <p class="mb-0 actor-p"><span class="actor-info">ALTURA</span> <%= @actor.height %> cm</p>
+      <p class="mb-0 actor-p"><span class="actor-info">OLHOS</span> <%= @actor.eyes.capitalize %></p>
+      <p class="mb-0 actor-p"><span class="actor-info">CABELO</span> <%= @actor.hair.capitalize %></p>
+    </div>
+
+    <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
+      <p class="category-title">_________ FOTOS</p>
+      <div class="actor-photos-container">
+        <% @actor.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: "actor-photo" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="position-relative py-4 px-5" style="min-height: 175px">
+      <p class="category-title">_________ VIDEOS</p>
+      <% @actor.links.where(video: true).each do |link| %>
+        <% if link.social.name == "Youtube" %>
+          <iframe style="max-width: 100%" width="600" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.social.url %><%= link.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <% elsif link.social.name == "Vimeo" %>
+          <iframe style="max-width: 100%" width="600" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.url %>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <% else %>
+          <%= link_to link.url %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= render "shared/footer" %>
+  </div>
+</div>

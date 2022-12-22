@@ -1,0 +1,14 @@
+<div class="actors-grid m-5 margin-top-index">
+  <p class="category-actors">_________ ACTORES</p>
+  <% @actors.each do |actor| %>
+    <%= link_to actor_path(actor), class: "actor-card-link" do %>
+      <div class="actor-card" style="background-image: url(<%= cl_image_path actor.primary_photo.key %>)">
+        <div class="h-100 w-100 actor-card-hover">
+        </div>
+        <div class="actor-card-border">
+        </div>
+        <p class="actor-card-name"><%= actor.first_name.upcase %> <%= actor.last_name.upcase %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

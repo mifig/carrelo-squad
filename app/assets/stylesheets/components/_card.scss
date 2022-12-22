@@ -1,0 +1,120 @@
+.actors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 60px;
+}
+
+.actor-card-link {
+  position: relative;
+  width: 270px;
+  height: 405px;
+  justify-self: center;
+}
+
+.actor-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 405px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: ease 0.5s;
+
+  &:hover {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 280px;
+    height: 415px;
+
+    .actor-card-hover {
+      background: $black;
+      opacity: 0.2;
+    }
+
+    .actor-card-border {
+      opacity: 1;
+      border: 3px solid $white-transparent;
+      width: 240px;
+      height: 375px;
+    }
+
+    .actor-card-name {
+      color: $white;
+    }
+  }
+}
+
+.actor-card-border {
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 365px;
+  width: 230px;
+  border: 0px solid $white-transparent;
+  transition: ease 0.5s;
+}
+
+.actor-card-hover {
+  position: absolute;
+  background: transparent;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: ease 0.5s;
+}
+
+.actor-card-name {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 80%;
+  color: transparent;
+  transition: ease 0.5s;
+}
+
+@media(max-width: 1600px) {
+  .actors-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 1200px) {
+  .actors-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 110px !important;
+  }
+
+  .actor-card-hover {
+    background: $black;
+    opacity: 0.2;
+  }
+
+  .actor-card-border {
+    opacity: 1;
+    border: 3px solid $white-transparent;
+  }
+
+  .actor-card-name {
+    color: $white;
+  }
+}
+
+@media(max-width: 1000px) {
+  .actors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 700px) {
+  .actors-grid {
+    grid-template-columns: 1fr;
+  }
+}
