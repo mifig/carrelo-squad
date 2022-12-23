@@ -1,10 +1,21 @@
 <div class="actor-show-container margin-top-show">
   <div class="actor-img-col text-center" style="background: url(<%= cl_image_path @actor.primary_photo.key %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="actor-img-border"></div>
+    <div class="h-100 w-100 actor-card-hover"></div>
+    <p class="actor-card-name"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></p>
   </div>
 
-  <div class="actor-infos-col">
-    <h1 class="actor-name mb-0 mt-5 mx-5"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
+  <div class="actor-infos-col mt-5">
+    <div class="actor-header d-flex justify-content-between">
+      <h1 class="actor-name mb-0 ms-5"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
+      <div class="actor-links justify-content-center mx-5 gap-3">
+        <% @actor.links.where(video: false).each do |link| %>
+          <%= link_to link.url, target: "_blank" do %>
+            <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
     <div class="position-relative py-4 px-5" style="min-height: 175px">
       <p class="category-title">_________ BIO</p>
       <p class="actor-bio actor-p m-0"><%= @actor.bio %></p>
@@ -42,6 +53,22 @@
         <% end %>
         <a href="<%= link.url %>" target="_blank" class="white-link"><%= link.url %></a>
       <% end %>
+
+      <div class="mt-4 text-center">
+        <% if @actor.cv.attached? %>
+          <%= link_to cloudinary_url(@actor.cv.key), class: "white-btn", target: "_blank" do %>
+            → DONWLOAD CV
+          <% end %>
+        <% end %>
+
+        <div class="actor-links-mobile justify-content-center mx-5 mt-4 gap-3">
+          <% @actor.links.where(video: false).each do |link| %>
+            <%= link_to link.url, target: "_blank" do %>
+              <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <%= render "shared/footer" %>

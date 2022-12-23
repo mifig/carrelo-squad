@@ -67,12 +67,16 @@ actor1.photos.attach(io: file4, filename: "#{actor1.first_name}-#{actor1.last_na
 actor1.photos.attach(io: file5, filename: "#{actor1.first_name}-#{actor1.last_name}-4", content_type: "image/jpg")
 actor1.photos.attach(io: file6, filename: "#{actor1.first_name}-#{actor1.last_name}-5", content_type: "image/jpg")
 
-actor1_imdb = Link.create(social: imdb, url: "https://www.instagram.com/teresa_tavares/?hl=en", actor: actor1)
+actor1_instagram = Link.create(social: instagram, url: "https://www.instagram.com/teresa_tavares/?hl=en", actor: actor1)
+actor1_imdb = Link.create(social: imdb, url: "https://www.imdb.com/name/nm1196647/", actor: actor1)
 actor1_imdbvideo = Link.create(social: imdb, url: "https://www.imdb.com/video/vi3985359385/?ref_=ext_shr_lnk", actor: actor1, video: true)
+actor1_youtubevideo = Link.create(social: youtube, url: "6hFqd62GICI", actor: actor1, video: true)
+actor1_vimeovideo = Link.create(social: vimeo, url: "https://player.vimeo.com/video/768031556?h=02cbbdc5d5", actor: actor1, video: true)
+
+cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
+actor1.cv.attach(io: cv, filename: "#{actor1.first_name}-#{actor1.last_name}-cv", content_type: "application/pdf")
 
 actor1.save
-
-Link.create(video: true, url: "https://www.castupload.com/actors/teresa-tavares/showreels/75963?locale=en", actor: actor1)
 
 puts "   Actor #{actor1.first_name} #{actor1.last_name} created!"
 

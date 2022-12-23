@@ -18,6 +18,9 @@
 
 .white-link {
   color: $white;
+  overflow: scroll;
+  display: inline-block;
+  width: 100%;
 
   &:hover {
     color: $white;

@@ -9,6 +9,7 @@ class ActorsController < ApplicationController
   def show
     @video_links = @actor.links.joins(:social).where("video = true and socials.name not in ('Youtube', 'Vimeo')")
     @videos = @actor.links.joins(:social).where("video = true and socials.name in ('Youtube', 'Vimeo')")
+    @links = @actor.links.where(video: false)
   end
 
   def new
