@@ -60,7 +60,6 @@ file4 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/produc
 file5 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/5fe18755-663e-4cc4-8944-a318664f65e2.jpg/4a679c789399e2863cd3f74ba877349d819b28b9c2c8169d4ef5e5494c02efec/c_limit,f_jpg,h_1200,q_80,w_1200")
 file6 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/8a0fff1a-bbaa-4e17-9f7c-0e2025347273.jpg/01dade06b5d6e3ec51d80c05ac65bcc397726b0e90850ce781f56ff8c7136cd4/c_limit,f_jpg,h_1200,q_80,w_1200")
 
-
 actor1.primary_photo.attach(io: file1, filename: "#{actor1.first_name}-#{actor1.last_name}", content_type: "image/jpg")
 actor1.photos.attach(io: file2, filename: "#{actor1.first_name}-#{actor1.last_name}-1", content_type: "image/jpg")
 actor1.photos.attach(io: file3, filename: "#{actor1.first_name}-#{actor1.last_name}-2", content_type: "image/jpg")
@@ -69,6 +68,7 @@ actor1.photos.attach(io: file5, filename: "#{actor1.first_name}-#{actor1.last_na
 actor1.photos.attach(io: file6, filename: "#{actor1.first_name}-#{actor1.last_name}-5", content_type: "image/jpg")
 
 actor1_imdb = Link.create(social: imdb, url: "https://www.instagram.com/teresa_tavares/?hl=en", actor: actor1)
+actor1_imdbvideo = Link.create(social: imdb, url: "https://www.imdb.com/video/vi3985359385/?ref_=ext_shr_lnk", actor: actor1, video: true)
 
 actor1.save
 

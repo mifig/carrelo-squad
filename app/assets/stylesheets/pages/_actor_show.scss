@@ -4,13 +4,6 @@
   width: 100%;
 }
 
-.actor-img {
-  width: 100%;
-  height: calc(100vh - 77px);
-  object-fit: cover;
-  object-position: center;
-}
-
 .actor-img-border {
   border: 3px solid $white-transparent;
   height: calc(100% - 40px);
@@ -26,6 +19,8 @@
   left: 0;
   padding: 0;
   width: 50%;
+
+  height: calc(100vh - 77px);
 }
 
 .actor-infos-col {
@@ -66,16 +61,27 @@
 @media(max-width: 1000px) {
   .actor-show-container {
     display: block;
+    margin-top: 130px;
   }
 
   .actor-img-col {
     position: relative;
-    width: 100%;
     top: unset;
     left: unset;
+    width: 270px;
+    height: 405px;
+    margin: 0 auto;
   }
 
   .actor-infos-col {
     width: 100%;
+  }
+
+  .actor-img-border {
+    height: 365px;
+    width: 230px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

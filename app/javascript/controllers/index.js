@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import VideoHeightController from "./video_height_controller"
+application.register("video-height", VideoHeightController)

@@ -1,7 +1,6 @@
 <div class="actor-show-container margin-top-show">
-  <div class="actor-img-col">
+  <div class="actor-img-col text-center" style="background: url(<%= cl_image_path @actor.primary_photo.key %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="actor-img-border"></div>
-    <%= cl_image_tag @actor.primary_photo.key, class: "actor-img" %>
   </div>
 
   <div class="actor-infos-col">
@@ -27,16 +26,21 @@
       </div>
     </div>
 
-    <div class="position-relative py-4 px-5" style="min-height: 175px">
+    <div class="position-relative py-4 px-5" style="min-height: 175px" data-controller="video-height" data-action="resize@window->video-height#setVideoHeight">
       <p class="category-title">_________ VIDEOS</p>
-      <% @actor.links.where(video: true).each do |link| %>
+      <% @videos.each do |link| %>
         <% if link.social.name == "Youtube" %>
-          <iframe style="max-width: 100%" width="600" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.social.url %><%= link.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe data-video-height-target="youtubeFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.social.url %><%= link.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <% elsif link.social.name == "Vimeo" %>
-          <iframe style="max-width: 100%" width="600" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.url %>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        <% else %>
-          <%= link_to link.url %>
+          <iframe data-video-height-target="vimeoFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.url %>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         <% end %>
+      <% end %>
+
+      <% @video_links.each do |link| %>
+        <% if link = @video_links.first %>
+          <p class="my-2">Other videos:</p>
+        <% end %>
+        <a href="<%= link.url %>" target="_blank" class="white-link"><%= link.url %></a>
       <% end %>
     </div>
 

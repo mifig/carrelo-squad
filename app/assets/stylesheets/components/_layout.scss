@@ -15,3 +15,11 @@
   font-weight: 200;
   font-size: 18px;
 }
+
+.white-link {
+  color: $white;
+
+  &:hover {
+    color: $white;
+  }
+}
