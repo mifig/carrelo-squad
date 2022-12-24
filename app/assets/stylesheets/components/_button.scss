@@ -24,3 +24,16 @@
   width: 270px;
   margin: 0 auto;
 }
+
+.nav-black-btn {
+  color: $white;
+  font-weight: 200;
+  background-color: $black;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  margin-right: 8px;
+
+  &:hover {
+    color: $white;
+  }
+}

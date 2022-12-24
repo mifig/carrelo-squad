@@ -34,6 +34,10 @@
   }
 }
 
+.nav-link-color {
+  color: $black;
+}
+
 @media(max-width: 1000px) {
   .navbar-lewagon .container-fluid {
     margin-right: 30px !important;

@@ -13,6 +13,10 @@ class ActorsController < ApplicationController
   end
 
   def new
+    @actor = Actor.new
+    @imdb = Social.find_by(name: "IMDb")
+    @instagram = Social.find_by(name: "Instagram")
+    @youtube = Social.find_by(name: "Youtube")
   end
 
   def create
