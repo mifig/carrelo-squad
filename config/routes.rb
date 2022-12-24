@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root "actors#index"
 
   resources :actors, param: :name do
-    resources :links, only: [:create, :destroy, :update]
+    resources :links, only: [:create, :update]
     get "links", to: "links#new"
   end
+
+  resources :links, only: [:destroy]
   
   get "about", to: "pages#about"
 end

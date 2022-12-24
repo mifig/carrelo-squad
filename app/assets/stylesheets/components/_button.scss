@@ -5,6 +5,11 @@
   padding: 12px 16px;
   text-decoration: none;
   display: inline-block;
+
+  &:hover {
+    color: $black;
+    background-color: $white;
+  }
 }
 
 .black-btn {
@@ -17,6 +22,7 @@
 
   &:hover {
     color: $white;
+    background-color: $black;
   }
 }
 
@@ -35,5 +41,25 @@
 
   &:hover {
     color: $white;
+  }
+}
+
+.white-bordered-btn {
+  color: $black;
+  border: 1px solid $black;
+
+  &:hover {
+    color: $black;
+    border: 1px solid $black;
+  }
+}
+
+.black-bordered-btn {
+  color: $white;
+  border: 1px solid $white;
+
+  &:hover {
+    color: $white;
+    border: 1px solid $white;
   }
 }

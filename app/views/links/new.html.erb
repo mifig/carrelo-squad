@@ -1,4 +1,4 @@
-<div class="actor-show-container margin-top-show" data-controller="actor">
+<div class="actor-show-container margin-top-show">
   <div class="actor-img-col d-flex justify-content-center align-items-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="text-center form-header">
       <h1 class="fw-light"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
@@ -9,13 +9,76 @@
       </div>
       <div class="d-flex justify-content-center gap-5 mt-4">
         <%= link_to "← VOLTAR", edit_actor_path(@actor), class: "black-btn border-0" %>
-        <button class="white-btn border-0" data-action="click->actor#sendForm">GUARDAR</button>
+        <%= link_to "GUARDAR", actor_path(@actor),class: "white-btn" %>
       </div>
     </div>
   </div>
-  <div class="actor-infos-col form-white-bg pt-5 px-5">
-    <%= simple_form_for [@actor, @link], data: { actor_target: "form" }  do |f| %>
-      <%= f.input :url %>
-    <% end %>
+  <div class="actor-infos-col form-white-bg pt-5" style="min-height: 100%">
+    <div class="form-links px-5">
+      <% if @links.present? %>
+        <p>Links</p>
+        <div>
+          <% @links.each do |link| %>
+            <div class="d-flex mb-3 gap-3 w-100">
+              <%= cl_image_tag link.social.logo.key, class: "actor-link-black" %>
+              <%= simple_form_for [@actor, link], html: { class: "flex-grow-1" } do |f| %>
+                <div class="d-flex">
+                  <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input" } %>
+                  <%= f.button :submit, "Guardar", class: "white-bordered-btn ms-3 rounded-0" %>
+                  <%= link_to link_path(link), class: "align-self-center ms-3" ,data: { turbo_method: :delete } do %>
+                    <i class="fa-regular fa-square-minus"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= simple_form_for [@actor, @link], html: { class: "pt-3" } do |f| %>
+        <p>Add Link</p>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="d-flex gap-3">
+            <%= f.association :social, label: "Rede Social",label: false, include_blank: false, include_hidden: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+          </div>
+          <%= f.button :submit, "Adicionar", class: "black-btn border-0 rounded-0 flex-grow-1" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-videos form-black-bg mt-4 px-5 py-4">
+      <% if @videos.present? %>
+        <p>Videos</p>
+        <div>
+          <% @videos.each do |link| %>
+            <div class="d-flex mb-3 gap-3 w-100">
+              <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
+              <%= simple_form_for [@actor, link], html: { class: "flex-grow-1" } do |f| %>
+                <div class="d-flex">
+                  <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white" } %>
+                  <%= f.button :submit, "Guardar", class: "black-bordered-btn ms-3 rounded-0" %>
+                  <%= link_to link_path(link), class: "align-self-center ms-3 white-font" ,data: { turbo_method: :delete } do %>
+                    <i class="fa-regular fa-square-minus"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= simple_form_for [@actor, @link], html: { class: "pt-3" } do |f| %>
+        <p>Add Video</p>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="d-flex gap-3">
+            <%= f.input :video, as: :hidden, input_html: { value: true } %>
+            <%= f.association :social, label: "Rede Social",label: false, include_blank: false, include_hidden: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input-white" }, label_html: { class: "m-0" } %>
+            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input-white" }, label_html: { class: "m-0" } %>
+          </div>
+          <%= f.button :submit, "Adicionar", class: "white-btn border-0 rounded-0 flex-grow-1" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -44,6 +44,11 @@ legend ~ div.form-check:first-of-type {
   background: $white;
 }
 
+.form-black-bg {
+  color: $white;
+  background: $black;
+}
+
 .form-header {
   height: 100%;
   background: rgba(0,0,0,0.1);
@@ -65,6 +70,21 @@ legend ~ div.form-check:first-of-type {
   &:focus {
     background: transparent;
     color: $black;
+  }
+}
+
+.actor-form-input-white {
+  background: transparent;
+  color: $white;
+  border-bottom: 1px solid $white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+
+  &:focus {
+    background: transparent;
+    color: $white;
   }
 }
 
