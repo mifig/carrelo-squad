@@ -1,6 +1,6 @@
 class ActorsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  before_action :set_actor, only: [:show]
+  before_action :set_actor, except: [:index, :new, :create]
 
   def index
     @actors = Actor.all.order("first_name ASC, last_name ASC")
@@ -14,21 +14,33 @@ class ActorsController < ApplicationController
 
   def new
     @actor = Actor.new
-    @imdb = Social.find_by(name: "IMDb")
-    @instagram = Social.find_by(name: "Instagram")
-    @youtube = Social.find_by(name: "Youtube")
   end
 
   def create
+    @actor = Actor.new(actor_params)
+
+    if @actor.save
+      redirect_to actor_links_path(@actor)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
   end
 
   def update
+    if @actor.update(actor_params)
+      redirect_to actor_links_path(@actor)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
-
+  
   def destroy
+    @actor.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private
@@ -39,5 +51,6 @@ class ActorsController < ApplicationController
   end
 
   def actor_params
+    params.require(:actor).permit(:first_name, :last_name, :email, :phone_number, :bio, :height, :hair, :eyes, :primary_photo, :cv, photos: [])
   end
 end

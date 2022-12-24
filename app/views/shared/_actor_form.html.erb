@@ -1,0 +1,43 @@
+<%= simple_form_for actor, data: { actor_target: "form" } do |f| %>
+  <div class="d-flex justify-content-between mb-3">
+    <%= f.input :first_name, label: "Primeiro Nome", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :last_name, label: "Último Nome", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3">
+    <%= f.input :email, as: :email, wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :phone_number, as: :tel, label: "Nº Telemóvel", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="d-flex mb-3">
+    <%= f.input :bio, wrapper_html: { class: "w-100" }, input_html: { rows: 3, class: "actor-form-input mb-3" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3">
+    <%= f.input :height, label: "Altura (cm)", wrapper_html: { class: "form-triple-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :hair, label: "Cabelo", wrapper_html: { class: "form-triple-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :eyes, label: "Olhos", wrapper_html: { class: "form-triple-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3">
+    <label class="form-double-input-wrapper">
+      <%= f.input :primary_photo, as: :file, label: "Foto Principal", input_html: { class: "actor-form-input d-none", data: { action: "change->actor#uploadPrimaryPhoto" }}, label_html: { class: "m-0" } %>
+      <div class="d-flex">
+        <a data-actor-target="photoButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar Foto</a>
+      </div>
+    </label>
+    <label class="form-double-input-wrapper">
+      <%= f.input :photos, as: :file, label: "Outras Fotos", input_html: { multiple: true, class: "actor-form-input d-none", data: { action: "change->actor#uploadPhotos" } }, label_html: { class: "m-0" } %>
+      <div class="d-flex">
+        <a data-actor-target="photosButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar Fotos</a>
+      </div>
+    </label>
+  </div>
+
+  <label class="form-double-input-wrapper">
+    <%= f.input :cv, as: :file, label: "Curriculum", input_html: { class: "d-none actor-form-input", data: { action: "change->actor#uploadCv" } }, label_html: { class: "m-0" } %>
+    <div class="d-flex">
+      <a data-actor-target="cvButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar CV</a>
+    </div>
+  </label>
+<% end %>

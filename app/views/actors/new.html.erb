@@ -1,36 +1,18 @@
-<div class="actor-show-container margin-top-show">
-  <div class="actor-img-col d-flex justify-content-center align-items-center">
-    <h1 class="fw-light">NOVO ACTOR</h1>
-    <h3 class="fw-lighter">INFOS</h3>
+<div class="actor-show-container margin-top-show" data-controller="actor">
+  <div  data-actor-target="primaryPhoto" class="actor-img-col d-flex justify-content-center align-items-center" style="background-size: cover; background-position: center; background-repeat: no-repeat">
+    <div class="text-center">
+      <h1 class="fw-light">NOVO ACTOR</h1>
+      <h3 class="fw-lighter">INFOS</h3>
+      <div class="form-steps mb-4 gap-2">
+        <div class="current-form-step"></div>
+        <div class="form-step"></div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button class="white-btn border-0" data-action="click->actor#sendForm">SEGUINTE →</button>
+      </div>
+    </div>
   </div>
-  <div class="actor-infos-col mt-5 px-5">
-    <%= simple_form_for @actor do |f| %>
-      <div class="d-flex">
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-      </div>
-
-      <div class="d-flex">
-        <%= f.input :email, as: :email %>
-        <%= f.input :phone_number, as: :tel %>
-      </div>
-
-      <%= f.input :bio %>
-
-      <div class="d-flex">
-        <%= f.input :height %>
-        <%= f.input :hair %>
-        <%= f.input :eyes %>
-      </div>
-
-      <div class="d-flex">
-        <%= f.input :primary_photo, as: :file %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      </div>
-
-      <%= f.input :cv, as: :file %>
-
-      <%= f.submit "GUARDAR", class: "black-btn" %>
-    <% end %>
+  <div class="actor-infos-col form-white-bg p-5">
+    <%= render "shared/actor_form", actor: @actor %>
   </div>
 </div>

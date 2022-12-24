@@ -6,6 +6,8 @@ class Actor < ApplicationRecord
   has_many_attached :photos
   has_one_attached :cv
 
+  validates :first_name, :last_name, :bio, :height, :hair, :eyes, :primary_photo, presence: true
+
   def to_param
     "#{first_name}-#{last_name}"
   end

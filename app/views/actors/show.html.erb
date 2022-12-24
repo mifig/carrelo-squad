@@ -1,5 +1,5 @@
 <div class="actor-show-container margin-top-show">
-  <div class="actor-img-col text-center" style="background: url(<%= cl_image_path @actor.primary_photo.key %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
+  <div class="actor-img-col text-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="actor-img-border"></div>
     <div class="h-100 w-100 actor-card-hover"></div>
     <p class="actor-card-name"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></p>

@@ -1,0 +1,77 @@
+// In bootstrap 5 legend floats left and requires the following element
+// to be cleared. In a radio button or checkbox group the element after
+// the legend will be the automatically generated hidden input; the fix
+// in https://github.com/twbs/bootstrap/pull/30345 applies to the hidden
+// input and has no visual effect. Here we try to fix matters by
+// applying the clear to the div wrapping the first following radio button
+// or checkbox.
+legend ~ div.form-check:first-of-type {
+  clear: left;
+}
+
+.login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 450px;
+}
+
+.form-steps {
+  width: 100%;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.current-form-step {
+  width: 15px;
+  background: $white;
+  border-radius: 50%;
+}
+
+.form-step {
+  height: 100%;
+  width: 15px;
+  background: $white-semi-transparent;
+  border-radius: 50%;
+}
+
+.form-white-bg {
+  color: $black;
+  min-height: calc(100vh - 77px);
+  background: $white;
+}
+
+.form-header {
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.actor-form-input {
+  background: transparent;
+  color: $black;
+  border-bottom: 1px solid $black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+
+  &:focus {
+    background: transparent;
+    color: $black;
+  }
+}
+
+.form-double-input-wrapper {
+  width: 45%;
+}
+
+.form-triple-input-wrapper {
+  width: 30%;
+}
