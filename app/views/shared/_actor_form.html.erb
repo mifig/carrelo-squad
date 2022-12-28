@@ -27,6 +27,9 @@
       </div>
     </label>
     <label class="form-double-input-wrapper">
+      <% @actor.photos.each do |photo| %>
+        <%= f.hidden_field :photos, multiple: true, value: photo.signed_id, class: "hidden-photos" %>
+      <% end %>
       <%= f.input :photos, as: :file, label: "Outras Fotos", input_html: { multiple: true, class: "actor-form-input d-none", data: { action: "change->actor#uploadPhotos" } }, label_html: { class: "m-0" } %>
       <div class="d-flex">
         <a data-actor-target="photosButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar Fotos</a>

@@ -26,5 +26,8 @@ export default class extends Controller {
   uploadPhotos(event) {
     const file = event.currentTarget.files
     this.photosButtonTarget.innerHTML = `${file.length} Files`
+    document.querySelectorAll(".hidden-photos").forEach(element => {
+      element.remove()
+    });
   }
 }
