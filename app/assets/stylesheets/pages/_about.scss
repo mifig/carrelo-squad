@@ -4,3 +4,22 @@
   width: 375px;
   height: 405px;
 }
+
+@media(max-width: 1000px) {
+  .about-image {
+    display: none
+  }
+
+  .owner-name {
+    display: none;
+  }
+
+  .about-container {
+    display: block !important;
+  }
+
+  .mobile-map {
+    width: 100% !important;
+    margin-top: 1.5rem;
+  }
+}

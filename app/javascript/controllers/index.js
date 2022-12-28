@@ -10,5 +10,8 @@ application.register("actor", ActorController)
 import ActorPhotosController from "./actor_photos_controller"
 application.register("actor-photos", ActorPhotosController)
 
+import MessagesController from "./messages_controller"
+application.register("messages", MessagesController)
+
 import VideoHeightController from "./video_height_controller"
 application.register("video-height", VideoHeightController)

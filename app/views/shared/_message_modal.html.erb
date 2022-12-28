@@ -1,19 +1,19 @@
-<button id="modal-btn" type="button" class="black-btn border-0" data-bs-toggle="modal" data-bs-target="#messageModal">
-  Ver
-</button>
+<%= link_to "Ver", "", id: "modal-btn", class: "black-btn border-0", data: { bs_toggle: "modal", bs_target: "#messageModal", action: "click->messages#markAsRead", href: read_message_path(message) } %>
 
 <div class="modal actor-imgs-modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content black-bg">
+    <div class="modal-content white-bg">
       <div class="modal-body px-5 py-3">
-        <h3 class="fw-light"><%= message.email %></h3>
-        <p class="mb-0">TÍTULO:</p>
-        <p><%= message.subject %></p>
-        <p class="mb-0">MENSAGEM:</p> 
-        <p><%= message.content %></p>
+        <h3 class="fw-light text-center text-decoration-underline">
+          <a href="mailto: <%= message.email %>"><%= message.email %></a>
+        </h3>
+        <p class="mb-1">TÍTULO:</p>
+        <p class="p-2" style="border: 1px solid black"><%= message.subject %></p>
+        <p class="mb-1">MENSAGEM:</p> 
+        <p class="p-2" style="white-space: break-spaces; border: 1px solid black"><%= message.content %></p>
       </div>
-      <div class="modal-footer px-3 py-2">
-        <button type="button" class="black-bordered-btn black-bg modal-close" data-bs-dismiss="modal">Close</button>
+      <div class="modal-footer px-3 py-2 white-bg">
+        <button type="button" class="white-bordered-btn black-bg btn-padding modal-close" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

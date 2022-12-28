@@ -1,20 +1,36 @@
 <div class="margin-top-show">
-  <div class="white-bg px-5 py-5">
-    <table>
-      <tr class="bg-black mb-2">
-        <th class="white-font p-2">Email</th>
-        <th class="white-font p-2">Título</th>
-        <th class="white-font p-2">Mensagem</th>
-      </tr>
-      <% @messages.each do |message| %>
-        <tr>
-          <td class="p-2"><%= message.email %></td>
-          <td class="p-2"><%= message.subject %></td>
-          <td class="w-100 p-2"><%= message.content %></td>
-          <td><%= render "shared/message_modal", message: message %></td>
-          <td class="ps-3"><%= link_to "Apagar", message_path(message), data: { turbo_method: "delete", turbo_confirm: "Apagar a mensagem de #{message.email}?" } %></td>
+  <div class="white-bg px-5 py-5" style="overflow: scroll; min-height: calc(100vh - 77px);">
+    <% if @messages.empty? %>
+      <h3 class="text-center">Nenhuma mensagem</h3>
+    <% else %>
+      <table>
+        <tr class="bg-black mb-2">
+          <th class="white-font p-2"></th>
+          <th class="white-font p-2">Email</th>
+          <th class="white-font p-2">Título</th>
+          <th class="white-font p-2">Mensagem</th>
+          <th class="white-font p-2">Recebido em</th>
+          <th></th>
         </tr>
-      <% end %>
-    </table>
+        <% @messages.each do |message| %>
+          <tr data-controller="messages" class="<%= "message-read" if message.read %>">
+            <td class="p-2 message-td">
+              <%= render "shared/message_modal", message: message %>
+            </td>
+            <td class="p-2 message-td" style="max-width: 400px">
+              <%= message.read ? "<i class='fa-solid fa-envelope'></i>".html_safe : "<i class='fa-solid fa-envelope-open'></i>".html_safe %>
+              <%= message.email %></td>
+            <td class="p-2 message-td"><%= message.subject %></td>
+            <td class="w-100 p-2 message-td"><%= message.content %></td>
+            <td class="p-2 message-td"><%= message.created_at.strftime("%H:%M %e-%m-%Y") %></td>
+            <td class="px-3">
+              <%= link_to message_path(message), data: { turbo_method: "delete", turbo_confirm: "Apagar a mensagem de #{message.email}?" } do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
   </div>
 </div>

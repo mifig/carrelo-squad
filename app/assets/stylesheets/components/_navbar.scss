@@ -73,14 +73,32 @@
   filter: brightness(0) invert(1);
 }
 
+.nav-item {
+  align-self: center;
+}
+
 @media(max-width: 1000px) {
   .navbar-white .container-fluid {
     margin-right: 30px !important;
     margin-left: 30px !important;
   }
-
+  
   .navbar-black .container-fluid {
     margin-right: 30px !important;
     margin-left: 30px !important;
+  }
+  
+  .messages-nav-item {
+    align-self: start;
+    margin-top: 0.5rem;
+  }
+
+  .nav-item {
+    align-self: start;
+  }
+
+  .nav-mobile-btn {
+    text-align: center;
+    width: 150px;
   }
 }

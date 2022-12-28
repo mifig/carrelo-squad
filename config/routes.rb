@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   
   get "about", to: "pages#about"
 
-  resources :messages, only: [:index, :create, :destroy]
+  resources :messages, only: [:index, :create, :destroy] do
+    member do
+      patch "/read", to: "messages#message_read", as: :read
+    end
+  end
 end
