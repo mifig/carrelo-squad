@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :links, only: [:destroy]
   
   get "about", to: "pages#about"
+
+  resources :messages, only: [:index, :create, :destroy]
 end

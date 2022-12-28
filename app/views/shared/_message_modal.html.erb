@@ -1,0 +1,20 @@
+<button id="modal-btn" type="button" class="black-btn border-0" data-bs-toggle="modal" data-bs-target="#messageModal">
+  Ver
+</button>
+
+<div class="modal actor-imgs-modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content black-bg">
+      <div class="modal-body px-5 py-3">
+        <h3 class="fw-light"><%= message.email %></h3>
+        <p class="mb-0">TÍTULO:</p>
+        <p><%= message.subject %></p>
+        <p class="mb-0">MENSAGEM:</p> 
+        <p><%= message.content %></p>
+      </div>
+      <div class="modal-footer px-3 py-2">
+        <button type="button" class="black-bordered-btn black-bg modal-close" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

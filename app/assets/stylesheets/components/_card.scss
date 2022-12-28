@@ -78,7 +78,11 @@
   width: 80%;
   color: transparent;
   transition: ease 0.5s;
-  visibility: hidden;
+  // visibility: hidden;
+
+  &:hover {
+    color: $white;
+  }
 }
 
 @media(max-width: 1600px) {
@@ -102,10 +106,6 @@
     opacity: 1;
     border: 3px solid $white-transparent;
   }
-
-  .actor-card-name {
-    color: $white;
-  }
 }
 
 @media(max-width: 1000px) {
@@ -114,7 +114,7 @@
   }
 
   .actor-card-name {
-    visibility: visible;
+    color: $white;
   }
 }
 

@@ -1,0 +1,20 @@
+<div class="margin-top-show">
+  <div class="white-bg px-5 py-5">
+    <table>
+      <tr class="bg-black mb-2">
+        <th class="white-font p-2">Email</th>
+        <th class="white-font p-2">Título</th>
+        <th class="white-font p-2">Mensagem</th>
+      </tr>
+      <% @messages.each do |message| %>
+        <tr>
+          <td class="p-2"><%= message.email %></td>
+          <td class="p-2"><%= message.subject %></td>
+          <td class="w-100 p-2"><%= message.content %></td>
+          <td><%= render "shared/message_modal", message: message %></td>
+          <td class="ps-3"><%= link_to "Apagar", message_path(message), data: { turbo_method: "delete", turbo_confirm: "Apagar a mensagem de #{message.email}?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
