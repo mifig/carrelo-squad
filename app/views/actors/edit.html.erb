@@ -1,6 +1,7 @@
 <div class="actor-show-container margin-top-show" data-controller="actor">
   <div data-actor-target="primaryPhoto" class="actor-img-col d-flex justify-content-center align-items-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
-    <div class="text-center form-header">
+    <div class="h-100 w-100 actor-card-hover"></div>
+    <div class="text-center form-header" style="z-index: 100">
       <h1 class="fw-light"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
       <h3 class="fw-lighter">INFOS</h3>
       <div class="form-steps mb-4 gap-2">
@@ -14,5 +15,8 @@
   </div>
   <div class="actor-infos-col form-white-bg p-5">
     <%= render "shared/actor_form", actor: @actor %>
+    <div class="mobile-form-btn-wrapper mt-4">
+      <button class="white-bordered-btn btn-padding" data-action="click->actor#sendForm">SEGUINTE →</button>
+    </div>
   </div>
 </div>

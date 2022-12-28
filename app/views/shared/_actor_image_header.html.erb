@@ -1,0 +1,37 @@
+<div id="photo-placeholder-carousel" class="carousel slide actor-img-col text-center" data-bs-ride="carousel" data-bs-interval="20000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#photo-placeholder-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Placeholder Slide 1"></button>
+    <% i = 1 %>
+    <% actor.photos.each do |photo| %>
+      <button type="button" data-bs-target="#photo-placeholder-carousel" data-bs-slide-to="<%= i %>" aria-label="Placeholder Slide <%= i + 1 %>"></button>
+      <% i += 1 %>
+    <% end %>
+  </div>
+
+  <div class="carousel-inner actor-img-carousel">
+    <div class="carousel-item active">
+      <div class="actor-img-col text-center" style="background: url(<%= cl_image_path actor.primary_photo.key if actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
+        <div class="actor-img-border"></div>
+        <div class="h-100 w-100 actor-card-hover"></div>
+        <p class="actor-card-name"><%= actor.first_name.upcase %> <%= actor.last_name.upcase %></p>
+      </div>
+    </div>
+
+    <% actor.photos.each do |photo| %>
+      <div class="carousel-item">
+        <div class="actor-img-col text-center" style="background: url(<%= cl_image_path photo.key %>); background-position: center; background-size: contain; background-repeat: no-repeat;">
+          <div class="h-100 w-100 actor-card-hover"></div>
+          <p class="actor-card-name"><%= actor.first_name.upcase %> <%= actor.last_name.upcase %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#photo-placeholder-carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#photo-placeholder-carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

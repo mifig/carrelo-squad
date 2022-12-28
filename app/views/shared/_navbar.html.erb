@@ -1,12 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light <%= (controller_name == "actors" && action_name == "index") ? "navbar-white" : "navbar-black" %>">
   <div class="container-fluid mx-5 px-0">
     <%= link_to root_path, class: "navbar-brand m-0" do %>
-      <p class="logo m-0 text-center">CARRELO SQUAD</p>
-      <p class="logo-aux m-0 text-center">ACTORS MANAGEMENT</p>
+      <p class="logo m-0 text-center <%= "white-font" if (controller_name != "actors" || action_name != "index") %>">CARRELO SQUAD</p>
+      <p class="logo-aux m-0 text-center <%= "white-font" if (controller_name != "actors" || action_name != "index") %>">ACTORS MANAGEMENT</p>
     <% end %>
 
-    <button class="navbar-toggler menu-burguer" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">
+    <button class="navbar-toggler menu-burguer white-font" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon <%= "navbar-toggler-icon-white" if (controller_name != "actors" || action_name != "index") %>">
       </span>
     </button>
 
@@ -14,29 +14,29 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "+ ACTOR", new_actor_path, class: "nav-link nav-black-btn" %>
+            <%= link_to "+ ACTOR", new_actor_path, class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-black-btn" : "nav-white-btn" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "ACTORES", root_path, class: "nav-link nav-link-color" %>
+            <%= link_to "ACTORES", root_path, class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "SOBRE", "#", class: "nav-link nav-link-color" %>
+            <%= link_to "SOBRE", "#", class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "CONTACTOS", "#", class: "nav-link nav-link-color" %>
+            <%= link_to "CONTACTOS", "#", class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "LOG OUT", destroy_user_session_path, class: "nav-link nav-link-color", data: { turbo_method: "delete" } %>
+            <%= link_to "LOG OUT", destroy_user_session_path, class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }", data: { turbo_method: "delete" } %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "ACTORES", root_path, class: "nav-link nav-link-color" %>
+            <%= link_to "ACTORES", root_path, class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "SOBRE", "#", class: "nav-link nav-link-color" %>
+            <%= link_to "SOBRE", "#", class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "CONTACTOS", "#", class: "nav-link nav-link-color" %>
+            <%= link_to "CONTACTOS", "#", class: "nav-link #{ (controller_name == "actors" && action_name == "index") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
         <% end %>
       </ul>

@@ -1,0 +1,30 @@
+<div id="photos-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="20000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#photos-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <% i = 1 %>
+    <% actor.photos.each do |photo| %>
+      <button type="button" data-bs-target="#photos-carousel" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i + 1 %>"></button>
+      <% i += 1 %>
+    <% end %>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= cl_image_tag(actor.primary_photo.key, class: "actor-modal-img") if actor.primary_photo.attached? %>
+    </div>
+
+    <% actor.photos.each do |photo| %>
+      <div class="carousel-item">
+        <%= cl_image_tag photo.key, class: "actor-modal-img" %>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#photos-carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#photos-carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

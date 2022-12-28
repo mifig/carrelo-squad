@@ -1,9 +1,7 @@
 <div class="actor-show-container margin-top-show">
-  <div class="actor-img-col text-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
-    <div class="actor-img-border"></div>
-    <div class="h-100 w-100 actor-card-hover"></div>
-    <p class="actor-card-name"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></p>
-  </div>
+  <%= render "shared/actor_imgs_modal", actor: @actor %>
+
+  <%= render "shared/actor_image_header", actor: @actor %>
 
   <div class="actor-infos-col mt-5">
     <div class="actor-header d-flex justify-content-between">
@@ -16,6 +14,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="position-relative py-4 px-5" style="min-height: 175px">
       <p class="category-title">_________ BIO</p>
       <p class="actor-bio actor-p m-0"><%= @actor.bio %></p>
@@ -31,8 +30,10 @@
     <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
       <p class="category-title">_________ FOTOS</p>
       <div class="actor-photos-container">
+        <% j = 1 %>
         <% @actor.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: "actor-photo" %>
+          <%= cl_image_tag photo.key, class: "actor-photo", data: { controller: "actor-photos", action: "click->actor-photos#slide", photo_id: j } %>
+          <% j += 1 %>
         <% end %>
       </div>
     </div>

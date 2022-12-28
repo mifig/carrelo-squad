@@ -78,6 +78,7 @@
   width: 80%;
   color: transparent;
   transition: ease 0.5s;
+  visibility: hidden;
 }
 
 @media(max-width: 1600px) {
@@ -110,6 +111,10 @@
 @media(max-width: 1000px) {
   .actors-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .actor-card-name {
+    visibility: visible;
   }
 }
 

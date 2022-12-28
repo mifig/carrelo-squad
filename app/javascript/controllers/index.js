@@ -7,8 +7,8 @@ import { application } from "./application"
 import ActorController from "./actor_controller"
 application.register("actor", ActorController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ActorPhotosController from "./actor_photos_controller"
+application.register("actor-photos", ActorPhotosController)
 
 import VideoHeightController from "./video_height_controller"
 application.register("video-height", VideoHeightController)

@@ -38,6 +38,11 @@ legend ~ div.form-check:first-of-type {
   border-radius: 50%;
 }
 
+.form-input-container {
+  display: flex; 
+  justify-content: space-between; 
+}
+
 .form-white-bg {
   color: $black;
   min-height: calc(100vh - 77px);
@@ -94,4 +99,50 @@ legend ~ div.form-check:first-of-type {
 
 .form-triple-input-wrapper {
   width: 30%;
+}
+
+.form-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.mobile-form-btn-wrapper {
+  display: none;
+}
+
+@media(max-width: 1000px) {
+  .form-double-input-wrapper {
+    width: 100%;
+  }
+
+  .form-triple-input-wrapper {
+    width: 100%;
+  }
+
+  .form-input-container {
+    display: block; 
+    justify-content: space-between; 
+  }
+
+  .form-buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: unset;
+  }
+
+  .mobile-form-btn-wrapper {
+    display: flex; 
+    justify-content: end; 
+  }
+
+  .mobile-form-input-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .mobile-form-white-bg {
+    background: $white;
+  }
 }

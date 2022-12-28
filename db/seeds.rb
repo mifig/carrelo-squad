@@ -82,7 +82,7 @@ puts "   Actor #{actor1.first_name} #{actor1.last_name} created!"
 
 actor2 = Actor.new(
   email: "vitorsilvacosta@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919912191", 
   first_name: "Vítor", 
   last_name: "Silva Costa",
   bio: "Vítor Silva Costa é um ator português (Porto, 5 de Maio de 1992).
@@ -100,7 +100,7 @@ puts "   Actor #{actor2.first_name} #{actor2.last_name} created!"
 
 actor3 = Actor.new(
   email: "raqueltillo@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919919193", 
   first_name: "Raquel", 
   last_name: "Tillo",
   bio: "Numa vida cheia de cor, Raquel é a lufada de ar fresco que recusa rótulos e apenas procura a felicidade em tudo o que faz.
@@ -118,7 +118,7 @@ puts "   Actor #{actor3.first_name} #{actor3.last_name} created!"
 
 actor4 = Actor.new(
   email: "anavarela@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919919194", 
   first_name: "Ana", 
   last_name: "Varela",
   bio: "Ana Catarina da Silva Varela (16 de Maio de 1988, Paço dos Negros), conhecida apenas como Ana Varela, é uma atriz portuguesa.
@@ -136,7 +136,7 @@ puts "   Actor #{actor4.first_name} #{actor4.last_name} created!"
 
 actor5 = Actor.new(
   email: "marinaalbuquerque@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919919195", 
   first_name: "Marina", 
   last_name: "Albuquerque",
   bio: "Frequentou o curso de Teatro no Conservatório.
@@ -152,7 +152,7 @@ puts "   Actor #{actor5.first_name} #{actor5.last_name} created!"
 
 actor6 = Actor.new(
   email: "madalenabrandao@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919919196", 
   first_name: "Madalena", 
   last_name: "Brandão",
   bio: "Madalena de Azevedo Cordeiro Norton Brandão mais conhecida por Madalena Brandão (Lisboa, 7 de Março em 1980) é uma actriz portuguesa. Popularizou-se com a personagem Camila em Super Pai, continuando depois a integrar o elenco de várias séries e novelas. Em Abril de 2019 lançou, juntamente com Joana Seixas, um blogue na plataforma SAPO com o objetivo de ciar um espaço livre de reflexão sobre a sutentabilidade.",
@@ -167,7 +167,7 @@ puts "   Actor #{actor6.first_name} #{actor6.last_name} created!"
 
 actor7 = Actor.new(
   email: "barbarabranco@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919919197", 
   first_name: "Bárbara", 
   last_name: "Branco",
   bio: "Madalena de Azevedo Cordeiro Norton Brandão mais conhecida por Madalena Brandão (Lisboa, 7 de Março em 1980) é uma actriz portuguesa. Popularizou-se com a personagem Camila em Super Pai, continuando depois a integrar o elenco de várias séries e novelas. Em Abril de 2019 lançou, juntamente com Joana Seixas, um blogue na plataforma SAPO com o objetivo de ciar um espaço livre de reflexão sobre a sutentabilidade.",
@@ -182,7 +182,7 @@ puts "   Actor #{actor7.first_name} #{actor7.last_name} created!"
 
 actor8 = Actor.new(
   email: "soraiatavares@gmail.com", 
-  phone_number: "+351919919191", 
+  phone_number: "+351919919198", 
   first_name: "Soraia", 
   last_name: "Tavares",
   bio: "Soraia tem 21 anos, é atriz e vem de Carnaxide. Vive com a mãe, que é empregada doméstica, e tem o pai em Cabo Verde há 6 anos (tem uma irmã na Suíça e um irmão no Barreiro). Soraia está no 1º ano da escola superior de teatro e cinema e faz parte do elenco do novo espetáculo de La Féria, ainda em ensaios. Tem feito vários musicais e é nesse âmbito que costuma cantar.

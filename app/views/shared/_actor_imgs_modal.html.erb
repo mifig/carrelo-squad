@@ -1,0 +1,15 @@
+<button id="modal-btn" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+</button>
+
+<div class="modal actor-imgs-modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content black-bg">
+      <div class="modal-body">
+        <%= render "shared/actor_modal_imgs_carousel", actor: actor %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="white-btn border-0 modal-close" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

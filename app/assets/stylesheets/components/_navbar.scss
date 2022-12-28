@@ -1,4 +1,4 @@
-.navbar-lewagon {
+.navbar-white {
   justify-content: space-between;
   background: $white;
   border-bottom: 3px solid $yellow;
@@ -8,13 +8,32 @@
   z-index: 9999;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-white .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-white .navbar-brand img {
   width: 40px;
 }
+
+.navbar-black {
+  justify-content: space-between;
+  background: $black;
+  border-bottom: 3px solid $yellow;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.navbar-black .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-black .navbar-brand img {
+  width: 40px;
+}
+
 
 .logo {
   font-size: 24px;
@@ -34,19 +53,33 @@
   }
 }
 
-.nav-link-color {
+.nav-link-black {
   color: $black;
-}
 
-@media(max-width: 1000px) {
-  .navbar-lewagon .container-fluid {
-    margin-right: 30px !important;
-    margin-left: 30px !important;
+  &:hover {
+    color: $black;
   }
 }
 
-@media(max-width: 700px) {
-  .navbar-lewagon .container-fluid {
+.nav-link-white {
+  color: $white;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.navbar-toggler-icon-white {
+  filter: brightness(0) invert(1);
+}
+
+@media(max-width: 1000px) {
+  .navbar-white .container-fluid {
+    margin-right: 30px !important;
+    margin-left: 30px !important;
+  }
+
+  .navbar-black .container-fluid {
     margin-right: 30px !important;
     margin-left: 30px !important;
   }

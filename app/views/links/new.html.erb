@@ -1,19 +1,20 @@
 <div class="actor-show-container margin-top-show">
   <div class="actor-img-col d-flex justify-content-center align-items-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
-    <div class="text-center form-header">
+    <div class="h-100 w-100 actor-card-hover"></div>
+    <div class="text-center form-header", style="z-index: 100">
       <h1 class="fw-light"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
       <h3 class="fw-lighter">LINKS</h3>
       <div class="form-steps mb-4 gap-2">
         <div class="form-step"></div>
         <div class="current-form-step"></div>
       </div>
-      <div class="d-flex justify-content-center gap-5 mt-4">
+      <div class="form-buttons-wrapper mt-4">
         <%= link_to "← VOLTAR", edit_actor_path(@actor), class: "black-btn border-0" %>
         <%= link_to "GUARDAR", actor_path(@actor),class: "white-btn" %>
       </div>
     </div>
   </div>
-  <div class="actor-infos-col form-white-bg pt-5" style="min-height: 100%">
+  <div class="actor-infos-col form-white-bg pt-4" style="min-height: 100%">
     <div class="form-links px-5">
       <% if @links.present? %>
         <p>Links</p>
@@ -37,12 +38,14 @@
 
       <%= simple_form_for [@actor, @link], html: { class: "pt-3" } do |f| %>
         <p>Add Link</p>
-        <div class="d-flex justify-content-between gap-3">
+        <div class="form-input-container gap-3">
           <div class="d-flex gap-3">
             <%= f.association :social, label: "Rede Social",label: false, include_blank: false, include_hidden: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
-            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input",  placeholder: "Actor account url" }, label_html: { class: "m-0" } %>
           </div>
-          <%= f.button :submit, "Adicionar", class: "black-btn border-0 rounded-0 flex-grow-1" %>
+          <div class="mobile-form-input-wrapper">
+            <%= f.button :submit, "Adicionar", class: "black-btn border-0 rounded-0 flex-grow-1" %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -70,15 +73,22 @@
 
       <%= simple_form_for [@actor, @link], html: { class: "pt-3" } do |f| %>
         <p>Add Video</p>
-        <div class="d-flex justify-content-between gap-3">
+        <div class="form-input-container gap-3">
           <div class="d-flex gap-3">
-            <%= f.input :video, as: :hidden, input_html: { value: true } %>
+            <%= f.input :video, label: false, input_html: { value: true }, wrapper_html: { class: "d-none" } %>
             <%= f.association :social, label: "Rede Social",label: false, include_blank: false, include_hidden: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input-white" }, label_html: { class: "m-0" } %>
-            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input-white" }, label_html: { class: "m-0" } %>
+            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white",  placeholder: "url (video ID for Youtube)" }, label_html: { class: "m-0" } %>
           </div>
-          <%= f.button :submit, "Adicionar", class: "white-btn border-0 rounded-0 flex-grow-1" %>
+          <div class="mobile-form-input-wrapper">
+            <%= f.button :submit, "Adicionar", class: "white-btn border-0 rounded-0 flex-grow-1" %>
+          </div>
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="mobile-form-btn-wrapper form-buttons-wrapper px-5 py-4 justify-content-between mobile-form-white-bg">
+    <%= link_to "← VOLTAR", edit_actor_path(@actor), class: "black-btn btn-padding border-0" %>
+    <%= link_to "GUARDAR", actor_path(@actor), class: "white-bordered-btn btn-padding" %>
   </div>
 </div>

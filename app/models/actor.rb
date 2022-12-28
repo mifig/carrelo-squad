@@ -7,6 +7,9 @@ class Actor < ApplicationRecord
   has_one_attached :cv
 
   validates :first_name, :last_name, :bio, :height, :hair, :eyes, :primary_photo, presence: true
+  validates :first_name, uniqueness: { scope: :last_name }
+  validates :email, uniqueness: true
+  validates :phone_number, uniqueness: true
 
   def to_param
     "#{first_name}-#{last_name}"
