@@ -18,8 +18,11 @@
               <%= render "shared/message_modal", message: message %>
             </td>
             <td class="p-2 message-td" style="max-width: 400px">
-              <%= message.read ? "<i class='fa-solid fa-envelope'></i>".html_safe : "<i class='fa-solid fa-envelope-open'></i>".html_safe %>
-              <%= message.email %></td>
+              <span id="message-read-icon">
+                <%= message.read ? "<i class='fa-solid fa-envelope'></i>".html_safe : "<i class='fa-solid fa-envelope-open'></i>".html_safe %>
+              </span>
+              <%= message.email %>
+            </td>
             <td class="p-2 message-td"><%= message.subject %></td>
             <td class="w-100 p-2 message-td"><%= message.content %></td>
             <td class="p-2 message-td"><%= message.created_at.strftime("%H:%M %e-%m-%Y") %></td>

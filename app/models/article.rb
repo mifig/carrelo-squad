@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   belongs_to :actor
+  has_one_attached :image
 
-  # has_one_attached :photo
+  validates :url, presence: true, uniqueness: true
 end

@@ -18,11 +18,10 @@ export default class extends Controller {
       .then((data) => {
         console.log(data)
         if (data.message === "Mensagem lida!") {
-          console.log(event.currentTarget)
-          console.log(this.element)
           this.element.classList.add("message-read")
           const messageCounter = document.querySelector(".unread-messages-counter")
           messageCounter.innerHTML = parseInt(messageCounter.innerHTML) - 1
+          document.getElementById("message-read-icon").innerHTML = "<i class='fa-solid fa-envelope'></i>"
 
           if (messageCounter.innerHTML === "0") {
             messageCounter.remove()

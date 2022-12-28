@@ -1,6 +1,7 @@
 class Actor < ApplicationRecord
   has_many :links, dependent: :destroy
   has_many :socials, through: :links
+  has_many :articles
 
   has_one_attached :primary_photo
   has_many_attached :photos
