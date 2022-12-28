@@ -7,10 +7,11 @@
       <div class="form-steps mb-4 gap-2">
         <div class="form-step"></div>
         <div class="current-form-step"></div>
+        <div class="form-step"></div>
       </div>
       <div class="form-buttons-wrapper mt-4">
         <%= link_to "← VOLTAR", edit_actor_path(@actor), class: "black-btn border-0" %>
-        <%= link_to "GUARDAR", actor_path(@actor),class: "white-btn" %>
+        <%= link_to "SEGUINTE →", actor_articles_path(@actor),class: "white-btn" %>
       </div>
     </div>
   </div>
@@ -75,7 +76,7 @@
         <p>Add Video</p>
         <div class="form-input-container gap-3">
           <div class="d-flex gap-3">
-            <%= f.input :video, label: false, input_html: { value: true }, wrapper_html: { class: "d-none" } %>
+            <%= f.input :video, as: :hidden, label: false, input_html: { value: true }, wrapper_html: { class: "d-none" } %>
             <%= f.association :social, label: "Rede Social",label: false, include_blank: false, include_hidden: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input-white" }, label_html: { class: "m-0" } %>
             <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white",  placeholder: "url (video ID for Youtube)" }, label_html: { class: "m-0" } %>
           </div>
@@ -89,6 +90,6 @@
 
   <div class="mobile-form-btn-wrapper form-buttons-wrapper px-5 py-4 justify-content-between mobile-form-white-bg">
     <%= link_to "← VOLTAR", edit_actor_path(@actor), class: "black-btn btn-padding border-0" %>
-    <%= link_to "GUARDAR", actor_path(@actor), class: "white-bordered-btn btn-padding" %>
+    <%= link_to "SEGUINTE →", actor_articles_path(@actor), class: "white-bordered-btn btn-padding" %>
   </div>
 </div>

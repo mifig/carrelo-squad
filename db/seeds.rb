@@ -37,6 +37,12 @@ vimeo.logo.attach(io: image, filename: "vimeo", content_type: "image/png")
 vimeo.save
 puts "   Vimeo created!"
 
+tiktok = Social.new(name: "TikTok", url: "https://www.tiktok.com")
+image = URI.open("https://www.edigitalagency.com.au/wp-content/uploads/TikTok-logo-black-circle-transparent-glyph.png")
+tiktok.logo.attach(io: image, filename: "tiktok", content_type: "image/png")
+tiktok.save
+puts "   TikTok created!"
+
 # CREATING ACTORS:
 puts "4. Creating Actors..."
 actor1 = Actor.new(

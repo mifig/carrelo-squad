@@ -1,0 +1,72 @@
+<div class="actor-show-container margin-top-show">
+  <div class="actor-img-col d-flex justify-content-center align-items-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
+    <div class="h-100 w-100 actor-card-hover"></div>
+    <div class="text-center form-header", style="z-index: 100">
+      <h1 class="fw-light"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
+      <h3 class="fw-lighter">NOTÍCIAS</h3>
+      <div class="form-steps mb-4 gap-2">
+        <div class="form-step"></div>
+        <div class="form-step"></div>
+        <div class="current-form-step"></div>
+      </div>
+      <div class="form-buttons-wrapper mt-4">
+        <%= link_to "← VOLTAR", actor_links_path(@actor), class: "black-btn border-0" %>
+        <%= link_to "GUARDAR", actor_path(@actor),class: "white-btn" %>
+      </div>
+    </div>
+  </div>
+  <div class="actor-infos-col form-black-bg pt-4" style="min-height: 100%">
+    <div class="form-links px-5">
+      <% if @actor.articles.present? %>
+        <div>
+          <% @actor.articles.each do |article| %>
+            <div class="d-flex mb-4 w-100">
+              <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
+                <div class="gap-3 article-input-mobile">
+                  <label style="cursor: pointer">
+                    <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white d-none" }, label_html: { class: "mb-0" } %>
+                    <div class="d-flex">
+                      <%= cl_image_tag article.image.key, class: "article-image" %>
+                    </div>
+                  </label>
+                  <div class="d-flex gap-3">
+                    <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white" } %>
+                    <div class="d-flex gap-3" style="height: fit-content">
+                      <%= f.button :submit, "Guardar", class: "black-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
+                      <%= link_to article_path(article), class: "align-self-center white-font" ,data: { turbo_method: :delete } do %>
+                        <i class="fa-regular fa-square-minus"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <p class="mb-0">Adicionar Notícia</p>
+      <%= simple_form_for [@actor, @article], html: { class: "py-3" } do |f| %>
+        <div class="form-input-container gap-3">
+          <div class="d-flex gap-3 align-items-center">
+            <label>
+              <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white d-none" }, label_html: { class: "mb-0" } %>
+              <div class="d-flex">
+                <a class="black-bordered-btn btn-padding text-decoration-none text-center w-100" style="cursor: pointer; white-space: nowrap;">Imagem</a>
+              </div>
+            </label>
+            <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white",  placeholder: "Url notícia" }, label_html: { class: "m-0" } %>
+          </div>
+          <div class="mobile-form-input-wrapper">
+            <%= f.button :submit, "Adicionar", class: "white-btn border-0 rounded-0 flex-grow-1" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mobile-form-btn-wrapper form-buttons-wrapper px-5 py-4 justify-content-between mobile-form-white-bg">
+    <%= link_to "← VOLTAR", actor_links_path(@actor), class: "black-btn btn-padding border-0" %>
+    <%= link_to "GUARDAR", actor_path(@actor), class: "white-bordered-btn btn-padding" %>
+  </div>
+</div>

@@ -72,6 +72,20 @@
       </div>
     </div>
 
+    <% if @actor.articles.present? %>
+      <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 200px">
+        <p class="category-title">_________ NOTICIAS</p>
+        <div class="actor-photos-container">
+          <% @actor.articles.each do |article| %>
+            <a href="<%= article.url %>" class="d-flex gap-3 mb-3 white-link" target="a_blank">
+              <%= cl_image_tag article.image.key, class: "article-image" %>
+              <p><%= article.url %></p>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <%= render "shared/footer" %>
   </div>
 </div>

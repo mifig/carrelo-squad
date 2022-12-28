@@ -1,8 +1,8 @@
 class LinksController < ApplicationController
-  before_action :set_actor, only: [:new, :create, :update]
+  before_action :set_actor, only: [:index, :create, :update]
   before_action :set_link, only: [:update, :destroy]
 
-  def new
+  def index
     @link = Link.new
     @links = @actor.links.where(video: false)
     @videos = @actor.links.where(video: true)
@@ -15,7 +15,7 @@ class LinksController < ApplicationController
     if @link.save
       redirect_to actor_links_path(@actor)
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
@@ -23,7 +23,7 @@ class LinksController < ApplicationController
     if @link.update(link_params)
       redirect_to actor_link_path(@actor)
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 

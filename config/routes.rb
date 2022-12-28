@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   root "actors#index"
 
   resources :actors, param: :name do
-    resources :links, only: [:create, :update]
-    get "links", to: "links#new"
-    resources :articles, only: [:new, :create, :update]
+    resources :links, only: [:index, :create, :update]
+    resources :articles, only: [:index, :create, :update]
   end
 
   resources :links, only: [:destroy]
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   
   resources :messages, only: [:index, :create, :destroy] do
     member do
-      patch "/read", to: "messages#message_read", as: :read
+      patch "read", to: "messages#message_read", as: :read
     end
   end
 
