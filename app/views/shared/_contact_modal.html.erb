@@ -4,17 +4,17 @@
 
 <div class="modal actor-imgs-modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content black-bg">
-      <div class="modal-body px-5 py-3">
+    <div class="modal-content white-bg">
+      <div class="modal-body px-5 py-4">
         <%= simple_form_for @message do |f| %>
-          <%= f.input :email, input_html: { class: "actor-form-input white-font", style: "border-bottom: 1px solid white", placeholder: "exemplo@gmail.com" } %>
-          <%= f.input :subject, label: "Título", input_html: { class: "actor-form-input white-font", style: "border-bottom: 1px solid white", placeholder: "Título da sua mensagem.." } %>
-          <%= f.input :content, label: "Mensagem", input_html: { class: "actor-form-input white-font", style: "border-bottom: 1px solid white", placeholder: "A sua mensagem.." } %>
-          <%= f.button :submit, "Enviar", class: "white-btn w-100" %>
+          <%= f.input :email, input_html: { class: "actor-form-input", style: "border-bottom: 1px solid black", placeholder: "exemplo@gmail.com" } %>
+          <%= f.input :subject, label: "Título", input_html: { class: "actor-form-input", style: "border-bottom: 1px solid black", placeholder: "Título da sua mensagem.." } %>
+          <%= f.input :content, label: "Mensagem", input_html: { class: "actor-form-input", style: "border-bottom: 1px solid black", placeholder: "A sua mensagem.." } %>
+          <%= f.button :submit, "Enviar", class: "black-btn w-100" %>
         <% end %>
       </div>
       <div class="modal-footer px-3 py-2" id="footer">
-        <button type="button" class="black-bordered-btn black-bg modal-close btn-padding" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="white-bordered-btn white-bg modal-close btn-padding" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

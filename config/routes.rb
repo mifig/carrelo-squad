@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :create, :destroy] do
     member do
       patch "read", to: "messages#message_read", as: :read
+      patch "unread", to: "messages#message_unread", as: :unread
     end
   end
 

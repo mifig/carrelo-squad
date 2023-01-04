@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create]
-  before_action :set_message, only: [:destroy, :message_read]
+  before_action :set_message, only: [:destroy, :message_read, :message_unread]
 
   def index
     @messages = Message.all.order(created_at: :desc)
@@ -29,13 +29,31 @@ class MessagesController < ApplicationController
       if @message.save
         respond_to do |format|
           format.html
-          format.json { render json: { message: "Mensagem lida!" }.to_json }
+          format.json { render json: { message: "Mensagem lida!", messageId: @message.id }.to_json }
         end
       end
     else
       respond_to do |format|
         format.html
-        format.json { render json: { message: "Mensagem já lida!" }.to_json }
+        format.json { render json: { message: "Mensagem já lida!", messageId: @message.id }.to_json }
+      end
+    end
+  end
+
+  def message_unread
+    if @message.read
+      @message.read = false
+
+      if @message.save
+        respond_to do |format|
+          format.html
+          format.json { render json: { message: "Mensagem marcada como não lida!", messageId: @message.id }.to_json }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html
+        format.json { render json: { message: "Mensagem não lida!", messageId: @message.id }.to_json }
       end
     end
   end

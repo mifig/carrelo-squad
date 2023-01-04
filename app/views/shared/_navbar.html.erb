@@ -18,9 +18,7 @@
           </li>
           <li class="nav-item messages-nav-item position-relative">
             <%= link_to messages_path, class: "nav-link nav-mobile-btn #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "white-bordered-btn" : "black-bordered-btn" }" do %>
-              <% if Message.where(read: false).count > 0 %>
-                <p class="position-absolute unread-messages-counter"><%= Message.where(read: false).count %></p>
-              <% end %>
+              <p class="position-absolute unread-messages-counter <%= "d-none" unless Message.where(read: false).count > 0 %>"><%= Message.where(read: false).count %></p>
               MENSAGENS
             <% end %>
           </li>

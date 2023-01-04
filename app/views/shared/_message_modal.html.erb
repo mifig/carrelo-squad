@@ -1,6 +1,6 @@
-<%= link_to "Ver", "", id: "modal-btn", class: "black-btn border-0", data: { bs_toggle: "modal", bs_target: "#messageModal", action: "click->messages#markAsRead", href: read_message_path(message) } %>
+<%= link_to "Ver", "", id: "modal-btn-#{message.id}", class: "black-btn border-0", data: { bs_toggle: "modal", bs_target: "#messageModal#{message.id}", action: "click->messages#markAsRead", href: read_message_path(message) } %>
 
-<div class="modal actor-imgs-modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+<div class="modal actor-imgs-modal fade" id="messageModal<%= message.id %>" tabindex="-1" aria-labelledby="messageModal<%= message.id %>Label" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content white-bg">
       <div class="modal-body px-5 py-3">

@@ -18,7 +18,7 @@
               <%= render "shared/message_modal", message: message %>
             </td>
             <td class="p-2 message-td" style="max-width: 400px">
-              <span id="message-read-icon">
+              <span class="message-read-icon" id="message-read-icon-<%= message.id %>" data-action="click->messages#markAsUnread" data-href="<%= unread_message_path(message) %>">
                 <%= message.read ? "<i class='fa-solid fa-envelope'></i>".html_safe : "<i class='fa-solid fa-envelope-open'></i>".html_safe %>
               </span>
               <%= message.email %>
