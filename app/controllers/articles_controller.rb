@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
 
   def index
     @article = Article.new
+    @articles_pdf = @actor.articles.joins("INNER JOIN active_storage_attachments on active_storage_attachments.record_id = articles.id and active_storage_attachments.record_type = 'Article'").where("active_storage_attachments.name = 'pdf'")
+    @articles_url = @actor.articles.where.not(url: nil)
   end
 
   def create
@@ -43,6 +45,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:url, :image)
+    params.require(:article).permit(:url, :image, :pdf)
   end
 end

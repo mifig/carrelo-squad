@@ -25,6 +25,7 @@
       <p class="mb-0 actor-p"><span class="actor-info">ALTURA</span> <%= @actor.height %> cm</p>
       <p class="mb-0 actor-p"><span class="actor-info">OLHOS</span> <%= @actor.eyes.capitalize %></p>
       <p class="mb-0 actor-p"><span class="actor-info">CABELO</span> <%= @actor.hair.capitalize %></p>
+      <p class="mb-0 actor-p"><span class="actor-info">AGE RANGE</span> <%= @actor.min_age %> - <%= @actor.max_age %></p>
     </div>
 
     <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
@@ -56,11 +57,19 @@
       <% end %>
 
       <div class="mt-4 text-center">
-        <% if @actor.cv.attached? %>
-          <%= link_to cloudinary_url(@actor.cv.key), class: "white-btn", target: "_blank" do %>
-            → DONWLOAD CV
+        <div class="d-flex flex-column justify-content-center gap-3" style="margin: 0 auto; width: 240px; max-width: 100%;">
+          <% if @actor.pt_cv.attached? %>
+            <%= link_to cloudinary_url(@actor.pt_cv.key), class: "white-btn", target: "_blank" do %>
+              → DONWLOAD CV (PT)
+            <% end %>
           <% end %>
-        <% end %>
+
+          <% if @actor.en_cv.attached? %>
+            <%= link_to cloudinary_url(@actor.en_cv.key), class: "white-btn", target: "_blank" do %>
+              → DONWLOAD CV (EN)
+            <% end %>
+          <% end %>
+        </div>
 
         <div class="actor-links-mobile justify-content-center mx-5 mt-4 gap-3">
           <% @actor.links.where(video: false).each do |link| %>
@@ -73,14 +82,19 @@
     </div>
 
     <% if @actor.articles.present? %>
-      <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 200px">
+      <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column white-bg" style="min-height: 200px">
         <p class="category-title">_________ NOTICIAS</p>
-        <div class="actor-photos-container">
+        <div class="actor-photos-container actor-photos-container-mobile">
           <% @actor.articles.each do |article| %>
-            <a href="<%= article.url %>" class="d-flex gap-3 mb-3 white-link" target="a_blank">
-              <%= cl_image_tag article.image.key, class: "article-image" %>
-              <p><%= article.url %></p>
-            </a>
+            <% if article.pdf.attached? %>
+             <%= link_to cloudinary_url(article.pdf.key), class: "mb-3 text-decoration-none", target: "a_blank" do %>
+                <%= cl_image_tag article.image.key, class: "article-image" %>
+              <% end %>
+            <% else %>
+              <%= link_to article.url, class: "mb-3 text-decoration-none", target: "a_blank" do %>
+                <%= cl_image_tag article.image.key, class: "article-image" %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>

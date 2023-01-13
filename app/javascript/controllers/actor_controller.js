@@ -3,15 +3,20 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="actor"
 export default class extends Controller {
 
-  static targets = [ "form", "cvButton", "photoButton", "primaryPhoto", "photosButton" ]
+  static targets = [ "form", "cvPtButton", "cvEnButton", "photoButton", "primaryPhoto", "photosButton" ]
 
   sendForm() {
     this.formTarget.submit()
   }
 
-  uploadCv(event) {
+  uploadPtCv(event) {
     const file = event.currentTarget.files[0]
-    this.cvButtonTarget.innerHTML = file.name
+    this.cvPtButtonTarget.innerHTML = file.name
+  }
+
+  uploadEnCv(event) {
+    const file = event.currentTarget.files[0]
+    this.cvEnButtonTarget.innerHTML = file.name
   }
 
   uploadPrimaryPhoto(event) {

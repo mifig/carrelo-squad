@@ -20,6 +20,11 @@
   </div>
 
   <div class="form-input-container mb-3">
+    <%= f.input :min_age, label: "Idade Mínima", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :max_age, label: "Idade Máxima", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="form-input-container mb-3">
     <label class="form-double-input-wrapper mb-3">
       <%= f.input :primary_photo, as: :file, label: "Foto Principal", input_html: { class: "actor-form-input d-none", data: { action: "change->actor#uploadPrimaryPhoto" }}, label_html: { class: "m-0" } %>
       <div class="d-flex">
@@ -37,10 +42,19 @@
     </label>
   </div>
 
-  <label class="form-double-input-wrapper">
-    <%= f.input :cv, as: :file, label: "Curriculum", input_html: { class: "d-none actor-form-input", data: { action: "change->actor#uploadCv" } }, label_html: { class: "m-0" } %>
-    <div class="d-flex">
-      <a data-actor-target="cvButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar CV</a>
-    </div>
-  </label>
+  <div class="form-input-container">
+    <label class="form-double-input-wrapper mb-3">
+      <%= f.input :pt_cv, as: :file, label: "Curriculum (PT)", input_html: { class: "d-none actor-form-input", data: { action: "change->actor#uploadPtCv" } }, label_html: { class: "m-0" } %>
+      <div class="d-flex">
+        <a data-actor-target="cvPtButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar CV (PT)</a>
+      </div>
+    </label>
+
+    <label class="form-double-input-wrapper mb-3">
+      <%= f.input :en_cv, as: :file, label: "Curriculum (EN)", input_html: { class: "d-none actor-form-input", data: { action: "change->actor#uploadEnCv" } }, label_html: { class: "m-0" } %>
+      <div class="d-flex">
+        <a data-actor-target="cvEnButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar CV (EN)</a>
+      </div>
+    </label>
+  </div>
 <% end %>

@@ -15,25 +15,56 @@
       </div>
     </div>
   </div>
-  <div class="actor-infos-col form-black-bg pt-4" style="min-height: 100%">
-    <div class="form-links px-5">
+  <div class="actor-infos-col form-black-bg" style="min-height: 100%">
+    <div class="white-bg form-links px-5 pt-4 pb-4">
       <% if @actor.articles.present? %>
         <div>
-          <% @actor.articles.each do |article| %>
+          <p>NOTÍCIAS URL</p>
+          <% @articles_url.each do |article| %>
             <div class="d-flex mb-4 w-100">
               <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
                 <div class="gap-3 article-input-mobile">
                   <label style="cursor: pointer">
-                    <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white d-none" }, label_html: { class: "mb-0" } %>
+                    <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
                     <div class="d-flex">
-                      <%= cl_image_tag article.image.key, class: "article-image" %>
+                      <%= cl_image_tag article.image.key, class: "article-image-edit" %>
                     </div>
                   </label>
-                  <div class="d-flex gap-3">
-                    <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white" } %>
+                  <div class="d-flex gap-3 flex-grow-1">
+                    <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black" } %>
                     <div class="d-flex gap-3" style="height: fit-content">
-                      <%= f.button :submit, "Guardar", class: "black-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
-                      <%= link_to article_path(article), class: "align-self-center white-font" ,data: { turbo_method: :delete } do %>
+                      <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
+                      <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
+                        <i class="fa-regular fa-square-minus"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          <p>NOTÍCIAS PDF</p>
+          <% @articles_pdf.each do |article| %>
+            <div class="d-flex w-100">
+              <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
+                <div class="gap-3 article-input-mobile">
+                  <label style="cursor: pointer">
+                    <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
+                    <div class="d-flex">
+                      <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                    </div>
+                  </label>
+                  <div class="d-flex gap-3 flex-grow-1">
+                    <label class="d-flex flex-grow-1" style="cursor: pointer">
+                      <%= f.input :pdf, as: :file, label: false, wrapper_html: { style: "display: none" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
+                      <div class="d-flex w-100">
+                        <p class="black-btn w-100 text-center">PDF</p>
+                      </div>
+                    </label>
+                    <div class="d-flex gap-3" style="height: fit-content">
+                      <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
+                      <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
                         <i class="fa-regular fa-square-minus"></i>
                       <% end %>
                     </div>
@@ -44,11 +75,13 @@
           <% end %>
         </div>
       <% end %>
+    </div>
 
-      <p class="mb-0">Adicionar Notícia</p>
+    <div class="form-links px-5 pt-4">
+      <p class="mb-0">ADICIONAR NOTÍCIAS</p>
       <%= simple_form_for [@actor, @article], html: { class: "py-3" } do |f| %>
         <div class="form-input-container gap-3">
-          <div class="d-flex gap-3 align-items-center">
+          <div class="d-flex gap-3 align-items-center flex-grow-1">
             <label>
               <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white d-none" }, label_html: { class: "mb-0" } %>
               <div class="d-flex">
@@ -56,6 +89,30 @@
               </div>
             </label>
             <%= f.input :url, label: "Url",label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white",  placeholder: "Url notícia" }, label_html: { class: "m-0" } %>
+          </div>
+          <div class="mobile-form-input-wrapper">
+            <%= f.button :submit, "Adicionar", class: "white-btn border-0 rounded-0 flex-grow-1" %>
+          </div>
+        </div>
+      <% end %>
+
+      <p class="text-center my-4 fw-bold">OU</p>
+
+      <%= simple_form_for [@actor, @article], html: { class: "py-3" } do |f| %>
+        <div class="form-input-container gap-3">
+          <div class="d-flex gap-3 align-items-center flex-grow-1">
+            <label>
+              <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white d-none" }, label_html: { class: "mb-0" } %>
+              <div class="d-flex">
+                <a class="black-bordered-btn btn-padding text-decoration-none text-center w-100" style="cursor: pointer; white-space: nowrap;">Imagem</a>
+              </div>
+            </label>
+            <label class="d-flex flex-grow-1" style="cursor: pointer">
+              <%= f.input :pdf, as: :file, label: false, wrapper_html: { style: "display: none" }, input_html: { class: "actor-form-input-white d-none" }, label_html: { class: "mb-0" } %>
+              <div class="d-flex w-100">
+                <p class="white-btn w-100 text-center m-0">PDF</p>
+              </div>
+            </label>
           </div>
           <div class="mobile-form-input-wrapper">
             <%= f.button :submit, "Adicionar", class: "white-btn border-0 rounded-0 flex-grow-1" %>
