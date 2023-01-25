@@ -8,11 +8,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @message.save
 
-    if @message.save
-      redirect_to about_path, notice: "Mensagem enviada!"
-    else
-      render "pages/about", status: :unprocessable_entity
+    respond_to do |format|
+      format.html { redirect_to about_path, notice: "Mensagem enviada!" }
+      format.text { render partial: "shared/message_form", locals: {message: @message}, formats: [:html] }
     end
   end
 

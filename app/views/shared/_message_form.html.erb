@@ -1,0 +1,6 @@
+<%= simple_form_for message, data: { messages_target: "form", action: "submit->messages#sendMessage" } do |f| %>
+  <%= f.input :email, input_html: { class: "actor-form-input", style: "border-bottom: 1px solid black", placeholder: "exemplo@gmail.com" } %>
+  <%= f.input :subject, label: "Título", input_html: { class: "actor-form-input", style: "border-bottom: 1px solid black", placeholder: "Título da sua mensagem.." } %>
+  <%= f.input :content, label: "Mensagem", input_html: { class: "actor-form-input", style: "border-bottom: 1px solid black", placeholder: "A sua mensagem.." } %>
+  <%= f.button :submit, "Enviar", class: "black-btn w-100" %>
+<% end %>
