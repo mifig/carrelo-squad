@@ -68,11 +68,13 @@
   filter: brightness(0) invert(1);
   width: 35px;
   height: 35px;
+  object-fit: contain;
 }
 
 .actor-link-black {
   width: 35px;
   height: 35px;
+  object-fit: contain;
 }
 
 .actor-links {

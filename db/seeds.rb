@@ -43,6 +43,18 @@ tiktok.logo.attach(io: image, filename: "tiktok", content_type: "image/png")
 tiktok.save
 puts "   TikTok created!"
 
+spotlight = Social.new(name: "Spotlight", url: "https://www.spotlight.com/")
+image = URI.open("https://www.spotlight.com/Features/Sunlight/Images/SpotlightLogoRound.svg")
+spotlight.logo.attach(io: image, filename: "spotlight", content_type: "image/svg")
+spotlight.save
+puts "   Spotlight created!"
+
+e_talenta = Social.new(name: "e-talenta", url: "https://www.e-talenta.eu/")
+image = URI.open("https://stories.e-talenta.eu/assets/images/logo-e-talenta-2017-1466x273.png")
+e_talenta.logo.attach(io: image, filename: "e_talenta", content_type: "image/svg")
+e_talenta.save
+puts "   Spotlight created!"
+
 # CREATING ACTORS:
 puts "4. Creating Actors..."
 actor1 = Actor.new(
@@ -75,6 +87,8 @@ actor1.photos.attach(io: file6, filename: "#{actor1.first_name}-#{actor1.last_na
 
 actor1_instagram = Link.create(social: instagram, url: "https://www.instagram.com/teresa_tavares/?hl=en", actor: actor1)
 actor1_imdb = Link.create(social: imdb, url: "https://www.imdb.com/name/nm1196647/", actor: actor1)
+actor1_spotlight = Link.create(social: spotlight, url: "https://www.spotlight.com/", actor: actor1)
+actor1_e_talenta = Link.create(social: e_talenta, url: "https://www.e-talenta.eu/members/profile/teresa-tavares", actor: actor1)
 actor1_imdbvideo = Link.create(social: imdb, url: "https://www.imdb.com/video/vi3985359385/?ref_=ext_shr_lnk", actor: actor1, video: true)
 actor1_youtubevideo = Link.create(social: youtube, url: "6hFqd62GICI", actor: actor1, video: true)
 actor1_vimeovideo = Link.create(social: vimeo, url: "https://player.vimeo.com/video/768031556?h=02cbbdc5d5", actor: actor1, video: true)
