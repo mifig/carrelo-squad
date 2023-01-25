@@ -7,7 +7,12 @@
     <div class="actor-header d-flex justify-content-between">
       <h1 class="actor-name mb-0 ms-5"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
       <div class="actor-links justify-content-center mx-5 gap-3">
-        <% @actor.links.where(video: false).each do |link| %>
+        <% if @imdb_link %>
+          <%= link_to @imdb_link.url, target: "_blank" do %>
+            <%= cl_image_tag @imdb_link.social.logo.key, class: "actor-link" %>
+          <% end %>
+        <% end %>
+        <% @links.each do |link| %>
           <%= link_to link.url, target: "_blank" do %>
             <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
           <% end %>
@@ -72,7 +77,12 @@
         </div>
 
         <div class="actor-links-mobile justify-content-center mx-5 mt-4 gap-3">
-          <% @actor.links.where(video: false).each do |link| %>
+          <% if @imdb_link %>
+            <%= link_to @imdb_link.url, target: "_blank" do %>
+              <%= cl_image_tag @imdb_link.social.logo.key, class: "actor-link" %>
+            <% end %>
+          <% end %>
+          <% @links.each do |link| %>
             <%= link_to link.url, target: "_blank" do %>
               <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
             <% end %>
