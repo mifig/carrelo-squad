@@ -93,10 +93,10 @@ actor1_imdbvideo = Link.create(social: imdb, url: "https://www.imdb.com/video/vi
 actor1_youtubevideo = Link.create(social: youtube, url: "6hFqd62GICI", actor: actor1, video: true)
 actor1_vimeovideo = Link.create(social: vimeo, url: "https://player.vimeo.com/video/768031556?h=02cbbdc5d5", actor: actor1, video: true)
 
-pt_cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
-en_cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
-actor1.pt_cv.attach(io: pt_cv, filename: "#{actor1.first_name}-#{actor1.last_name}-pt-cv", content_type: "application/pdf")
-actor1.en_cv.attach(io: en_cv, filename: "#{actor1.first_name}-#{actor1.last_name}-en-cv", content_type: "application/pdf")
+# pt_cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
+# en_cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
+# actor1.pt_cv.attach(io: pt_cv, filename: "#{actor1.first_name}-#{actor1.last_name}-pt-cv", content_type: "application/pdf")
+# actor1.en_cv.attach(io: en_cv, filename: "#{actor1.first_name}-#{actor1.last_name}-en-cv", content_type: "application/pdf")
 
 actor1.save
 
