@@ -38,7 +38,7 @@
       <% end %>
 
       <%= simple_form_for [@actor, @link], html: { class: "pt-3" } do |f| %>
-        <p>Add Link</p>
+        <p>Adicionar Links</p>
         <div class="form-input-container gap-3">
           <div class="d-flex gap-3">
             <%= f.association :social, label: "Rede Social",label: false, include_blank: false, include_hidden: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
@@ -73,7 +73,7 @@
       <% end %>
 
       <%= simple_form_for [@actor, @link], html: { class: "pt-3" } do |f| %>
-        <p>Add Video</p>
+        <p>Adicionar Vídeos</p>
         <div class="form-input-container gap-3">
           <div class="d-flex gap-3">
             <%= f.input :video, as: :hidden, label: false, input_html: { value: true }, wrapper_html: { class: "d-none" } %>
