@@ -53,7 +53,7 @@ e_talenta = Social.new(name: "e-talenta", url: "https://www.e-talenta.eu/")
 image = URI.open("https://stories.e-talenta.eu/assets/images/logo-e-talenta-2017-1466x273.png")
 e_talenta.logo.attach(io: image, filename: "e_talenta", content_type: "image/svg")
 e_talenta.save
-puts "   Spotlight created!"
+puts "   e-talenta created!"
 
 # CREATING ACTORS:
 puts "4. Creating Actors..."
@@ -93,8 +93,10 @@ actor1_imdbvideo = Link.create(social: imdb, url: "https://www.imdb.com/video/vi
 actor1_youtubevideo = Link.create(social: youtube, url: "6hFqd62GICI", actor: actor1, video: true)
 actor1_vimeovideo = Link.create(social: vimeo, url: "https://player.vimeo.com/video/768031556?h=02cbbdc5d5", actor: actor1, video: true)
 
-cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
-actor1.cv.attach(io: cv, filename: "#{actor1.first_name}-#{actor1.last_name}-cv", content_type: "application/pdf")
+pt_cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
+en_cv = File.open("/Users/miguelfigueiredo/Desktop/00_Docs/01_JobApplicationDocs/MotivationLetter_PostGrad_DataScience_Tecnico.pdf")
+actor1.pt_cv.attach(io: pt_cv, filename: "#{actor1.first_name}-#{actor1.last_name}-pt-cv", content_type: "application/pdf")
+actor1.en_cv.attach(io: en_cv, filename: "#{actor1.first_name}-#{actor1.last_name}-en-cv", content_type: "application/pdf")
 
 actor1.save
 
