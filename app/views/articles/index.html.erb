@@ -27,7 +27,9 @@
                   <label style="cursor: pointer">
                     <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
                     <div class="d-flex">
-                      <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                      <% if article.image.attached? %>
+                        <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                      <% end %>
                     </div>
                   </label>
                   <div class="d-flex gap-3 flex-grow-1">
@@ -52,7 +54,9 @@
                   <label style="cursor: pointer">
                     <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
                     <div class="d-flex">
-                      <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                      <% if article.image.attached? %>
+                        <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                      <% end %>
                     </div>
                   </label>
                   <div class="d-flex gap-3 flex-grow-1">
