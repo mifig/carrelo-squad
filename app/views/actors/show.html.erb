@@ -97,12 +97,20 @@
         <div class="actor-photos-container actor-photos-container-mobile">
           <% @actor.articles.each do |article| %>
             <% if article.pdf.attached? %>
-             <%= link_to cloudinary_url(article.pdf.key), class: "mb-3 text-decoration-none", target: "a_blank" do %>
-                <%= cl_image_tag article.image.key, class: "article-image" %>
+              <%= link_to cloudinary_url(article.pdf.key), class: "mb-3 text-decoration-none", target: "a_blank" do %>
+                <% if article.image.attached? %>
+                  <%= cl_image_tag article.image.key, class: "article-image" %>
+                <% else %>
+                  <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
+                <% end %>
               <% end %>
             <% else %>
               <%= link_to article.url, class: "mb-3 text-decoration-none", target: "a_blank" do %>
-                <%= cl_image_tag article.image.key, class: "article-image" %>
+                <% if article.image.attached? %>
+                  <%= cl_image_tag article.image.key, class: "article-image" %>
+                <% else %>
+                  <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
