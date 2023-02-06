@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@actor.first_name} #{@actor.last_name}" %>
+<% content_for :meta_description, @actor.bio %>
+<% content_for :meta_image, cl_image_path(@actor.primary_photo.key) if @actor.primary_photo.attached? %>
+
 <div class="actor-show-container margin-top-show">
   <%= render "shared/actor_imgs_modal", actor: @actor %>
 
