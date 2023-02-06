@@ -29,6 +29,8 @@
                     <div class="d-flex">
                       <% if article.image.attached? %>
                         <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                      <% else %>
+                        <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
                       <% end %>
                     </div>
                   </label>
@@ -56,6 +58,8 @@
                     <div class="d-flex">
                       <% if article.image.attached? %>
                         <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                      <% else %>
+                        <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
                       <% end %>
                     </div>
                   </label>
