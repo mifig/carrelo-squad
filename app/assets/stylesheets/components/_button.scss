@@ -103,6 +103,18 @@
   padding: 12px 58px;
 }
 
+.delete-photo-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: $white;
+  text-shadow: 0px 0px 7px $black;
+  
+  &:hover {
+    color: $yellow;
+  }
+}
+
 
 @media(max-width: 1000px) {
   .admin-btn {

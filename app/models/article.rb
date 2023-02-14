@@ -7,6 +7,6 @@ class Article < ApplicationRecord
   validates :url, uniqueness: true
 
   def pdf?
-    pdf.present?
+    pdf.attached?
   end
 end

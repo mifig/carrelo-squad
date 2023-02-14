@@ -26,19 +26,19 @@
 
     <div class="position-relative py-4 px-5" style="min-height: 175px">
       <p class="category-title">_________ BIO</p>
-      <p class="actor-bio actor-p m-0"><%= @actor.bio %></p>
+      <p class="actor-bio actor-p m-0"><%= I18n.locale == :pt ? @actor.bio : @actor.bio_en %></p>
     </div>
     
     <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
       <p class="category-title">_________ INFO</p>
-      <p class="mb-0 actor-p"><span class="actor-info">ALTURA</span> <%= @actor.height %> cm</p>
-      <p class="mb-0 actor-p"><span class="actor-info">OLHOS</span> <%= @actor.eyes.capitalize %></p>
-      <p class="mb-0 actor-p"><span class="actor-info">CABELO</span> <%= @actor.hair.capitalize %></p>
+      <p class="mb-0 actor-p"><span class="actor-info"><%= t("height").upcase %></span> <%= @actor.height %> cm</p>
+      <p class="mb-0 actor-p"><span class="actor-info"><%= t("eyes").upcase %></span> <%= I18n.locale == :pt ? @actor.eyes.capitalize : @actor.eyes_en.capitalize %></p>
+      <p class="mb-0 actor-p"><span class="actor-info"><%= t("hair").upcase %></span> <%= I18n.locale == :pt ? @actor.hair.capitalize : @actor.hair_en.capitalize %></p>
       <p class="mb-0 actor-p"><span class="actor-info">AGE RANGE</span> <%= @actor.min_age %> - <%= @actor.max_age %></p>
     </div>
 
     <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
-      <p class="category-title">_________ FOTOS</p>
+      <p class="category-title">_________ <%= t("photos").upcase %></p>
       <div class="actor-photos-container">
         <% j = 1 %>
         <% @actor.photos.each do |photo| %>
@@ -60,7 +60,7 @@
 
       <% @video_links.each do |link| %>
         <% if link = @video_links.first %>
-          <p class="my-2">Other videos:</p>
+          <p class="my-2"><%= t("other_videos") %></p>
         <% end %>
         <a href="<%= link.url %>" target="_blank" class="white-link"><%= link.url %></a>
       <% end %>
@@ -97,7 +97,7 @@
 
     <% if @actor.articles.present? %>
       <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column white-bg" style="min-height: 200px">
-        <p class="category-title">_________ NOTICIAS</p>
+        <p class="category-title">_________ <%= t("news").upcase %></p>
         <div class="actor-photos-container actor-photos-container-mobile">
           <% @actor.articles.each do |article| %>
             <% if article.pdf.attached? %>

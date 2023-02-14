@@ -1,6 +1,6 @@
 class ActorsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  before_action :set_actor, except: [:index, :new, :create]
+  before_action :set_actor, except: [:index, :new, :create, :delete_photo]
 
   def index
     @actors = Actor.all.order("first_name ASC, last_name ASC")
@@ -43,6 +43,16 @@ class ActorsController < ApplicationController
     @actor.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def delete_photo
+    full_name = params[:actor_name].split("-")
+    @actor = Actor.find_by(first_name: full_name.first, last_name: full_name.last)
+
+    @photo = @actor.photos.find { |photo| photo.signed_id == params[:photo_id] }
+    @photo.purge
+
+    redirect_to edit_actor_path(@actor), status: :see_other
   end
 
   private

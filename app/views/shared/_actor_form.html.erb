@@ -13,10 +13,19 @@
     <%= f.input :bio, wrapper_html: { class: "w-100" }, input_html: { rows: 3, class: "actor-form-input mb-3" }, label_html: { class: "m-0" } %>
   </div>
 
+  <div class="d-flex">
+    <%= f.input :bio_en, label: "Bio (Inglês)", wrapper_html: { class: "w-100" }, input_html: { rows: 3, class: "actor-form-input mb-3" }, label_html: { class: "m-0" } %>
+  </div>
+
   <div class="form-input-container mb-3">
     <%= f.input :height, label: "Altura (cm)", wrapper_html: { class: "form-triple-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
     <%= f.input :hair, label: "Cabelo", wrapper_html: { class: "form-triple-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
     <%= f.input :eyes, label: "Olhos", wrapper_html: { class: "form-triple-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="form-input-container mb-3">
+    <%= f.input :hair_en, label: "Cabelo (Inglês)", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :eyes_en, label: "Olhos (Inglês)", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
   </div>
 
   <div class="form-input-container mb-3">
@@ -25,21 +34,34 @@
   </div>
 
   <div class="form-input-container mb-3">
-    <label class="form-double-input-wrapper mb-3">
+    <label class="mb-3">
       <%= f.input :primary_photo, as: :file, label: "Foto Principal", input_html: { class: "actor-form-input d-none", data: { action: "change->actor#uploadPrimaryPhoto" }}, label_html: { class: "m-0" } %>
       <div class="d-flex">
         <a data-actor-target="photoButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar Foto</a>
       </div>
     </label>
+  </div>
+
+  <div class="mb-4">
+    <p>Outras fotos</p>
+    <div class="actor-photos-container d-flex gap-1">
+      <% @actor.photos.each do |photo| %>
+        <div class="position-relative">
+          <%= link_to "Apagar", actor_delete_photo_path(@actor, photo_id: photo.signed_id), data: { turbo_method: :delete, turbo_confirm: "Tem a certeza que quer apagar esta fotografia?" },class: "delete-photo-btn" %>
+          <%= cl_image_tag photo.key, class: "actor-photo", style: "cursor: unset;" %>
+        </div>
+      <% end %>
+    </div>
     <label class="form-double-input-wrapper">
       <% @actor.photos.each do |photo| %>
         <%= f.hidden_field :photos, multiple: true, value: photo.signed_id, class: "hidden-photos" %>
       <% end %>
-      <%= f.input :photos, as: :file, label: "Outras Fotos", input_html: { multiple: true, class: "actor-form-input d-none", data: { action: "change->actor#uploadPhotos" } }, label_html: { class: "m-0" } %>
+      <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: "actor-form-input d-none", data: { action: "change->actor#uploadPhotos" } }, label_html: { class: "m-0" } %>
       <div class="d-flex">
         <a data-actor-target="photosButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar Fotos</a>
       </div>
     </label>
+    
   </div>
 
   <div class="form-input-container">

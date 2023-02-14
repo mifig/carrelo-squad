@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_190958) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_203013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_190958) do
     t.datetime "updated_at", null: false
     t.integer "min_age"
     t.integer "max_age"
+    t.text "bio_en"
+    t.string "eyes_en"
+    t.string "hair_en"
   end
 
   create_table "articles", force: :cascade do |t|

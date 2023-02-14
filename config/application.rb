@@ -23,5 +23,10 @@ module CarreloSquad
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.available_locales = %i[en pt]
+    config.i18n.default_locale = :pt
+    config.i18n.fallbacks = %i[en]
+
+    config.active_storage.replace_on_assign_to_many = false
   end
 end

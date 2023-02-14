@@ -16,74 +16,78 @@
     </div>
   </div>
   <div class="actor-infos-col form-black-bg" style="min-height: 100%">
-    <div class="white-bg form-links px-5 pt-4 pb-4">
-      <% if @actor.articles.present? %>
+    <% if @actor.articles.present? %>
+      <div class="white-bg form-links px-5 pt-4 pb-4">
         <div>
-          <p>NOTÍCIAS URL</p>
-          <% @articles_url.each do |article| %>
-            <div class="d-flex mb-4 w-100">
-              <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
-                <div class="gap-3 article-input-mobile">
-                  <label style="cursor: pointer">
-                    <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
-                    <div class="d-flex">
-                      <% if article.image.attached? %>
-                        <%= cl_image_tag article.image.key, class: "article-image-edit" %>
-                      <% else %>
-                        <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
-                      <% end %>
-                    </div>
-                  </label>
-                  <div class="d-flex gap-3 flex-grow-1">
-                    <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black" } %>
-                    <div class="d-flex gap-3" style="height: fit-content">
-                      <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
-                      <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
-                        <i class="fa-regular fa-square-minus"></i>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-
-          <p>NOTÍCIAS PDF</p>
-          <% @articles_pdf.each do |article| %>
-            <div class="d-flex w-100">
-              <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
-                <div class="gap-3 article-input-mobile">
-                  <label style="cursor: pointer">
-                    <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
-                    <div class="d-flex">
-                      <% if article.image.attached? %>
-                        <%= cl_image_tag article.image.key, class: "article-image-edit" %>
-                      <% else %>
-                        <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
-                      <% end %>
-                    </div>
-                  </label>
-                  <div class="d-flex gap-3 flex-grow-1">
-                    <label class="d-flex flex-grow-1" style="cursor: pointer">
-                      <%= f.input :pdf, as: :file, label: false, wrapper_html: { style: "display: none" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
-                      <div class="d-flex w-100">
-                        <p class="black-btn w-100 text-center">PDF</p>
+          <% if @articles_url.present? %>
+            <p>NOTÍCIAS URL</p>
+            <% @articles_url.each do |article| %>
+              <div class="d-flex mb-4 w-100">
+                <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
+                  <div class="gap-3 article-input-mobile">
+                    <label style="cursor: pointer">
+                      <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
+                      <div class="d-flex">
+                        <% if article.image.attached? %>
+                          <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                        <% else %>
+                          <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
+                        <% end %>
                       </div>
                     </label>
-                    <div class="d-flex gap-3" style="height: fit-content">
-                      <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
-                      <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
-                        <i class="fa-regular fa-square-minus"></i>
-                      <% end %>
+                    <div class="d-flex gap-3 flex-grow-1">
+                      <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black" } %>
+                      <div class="d-flex gap-3" style="height: fit-content">
+                        <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
+                        <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
+                          <i class="fa-regular fa-square-minus"></i>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if @articles_pdf.present? %>
+            <p>NOTÍCIAS PDF</p>
+            <% @articles_pdf.each do |article| %>
+              <div class="d-flex w-100">
+                <%= simple_form_for [@actor, article], html: { class: "flex-grow-1" } do |f| %>
+                  <div class="gap-3 article-input-mobile">
+                    <label style="cursor: pointer">
+                      <%= f.input :image, as: :file, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
+                      <div class="d-flex">
+                        <% if article.image.attached? %>
+                          <%= cl_image_tag article.image.key, class: "article-image-edit" %>
+                        <% else %>
+                          <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
+                        <% end %>
+                      </div>
+                    </label>
+                    <div class="d-flex gap-3 flex-grow-1">
+                      <label class="d-flex flex-grow-1" style="cursor: pointer">
+                        <%= f.input :pdf, as: :file, label: false, wrapper_html: { style: "display: none" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
+                        <div class="d-flex w-100">
+                          <p class="black-btn w-100 text-center">PDF</p>
+                        </div>
+                      </label>
+                      <div class="d-flex gap-3" style="height: fit-content">
+                        <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
+                        <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
+                          <i class="fa-regular fa-square-minus"></i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <div class="form-links px-5 pt-4">
       <p class="mb-0">ADICIONAR NOTÍCIAS</p>

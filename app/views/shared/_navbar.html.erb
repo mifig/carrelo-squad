@@ -11,6 +11,16 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="dropdown">
+        <button class="py-1 px-2 border-0 bg-transparent dropdown-toggle <%= "white-font" if ((controller_name != "actors" || action_name != "index") && controller_name != "messages") %>" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= I18n.locale.upcase %>
+        </button>
+        <ul class="px-3 dropdown-menu" aria-labelledby="dropdownMenuButton1"  style="min-width: unset; width: fit-content">
+          <li><%= link_to "PT", pt_path, data: { turbo_method: "POST" }, class: "text-decoration-none #{ "fw-bold" if I18n.locale == :pt }", style: "padding: 6px 0px;" %></li>
+          <li><%= link_to "EN", en_path, data: { turbo_method: "POST" }, class: "text-decoration-none #{ "fw-bold" if I18n.locale == :en }", style: "padding: 6px 0px;" %></li>
+        </ul>
+      </div>
+
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -23,26 +33,26 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "ACTORES", root_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
+            <%= link_to t("actors").upcase, root_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "SOBRE", about_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
+            <%= link_to t("about").upcase, about_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "CONTACTOS", "/about#contacts", class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
+            <%= link_to t("contacts").upcase, "/about#contacts", class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
             <%= link_to "LOG OUT", destroy_user_session_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }", data: { turbo_method: "delete" } %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "ACTORES", root_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
+            <%= link_to t("actors").upcase, root_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "SOBRE", about_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
+            <%= link_to t("about").upcase, about_path, class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
           <li class="nav-item">
-            <%= link_to "CONTACTOS", "/about#contacts", class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
+            <%= link_to t("contacts").upcase, "/about#contacts", class: "nav-link #{ ((controller_name == "actors" && action_name == "index") || controller_name == "messages") ? "nav-link-black" : "nav-link-white" }" %>
           </li>
         <% end %>
       </ul>

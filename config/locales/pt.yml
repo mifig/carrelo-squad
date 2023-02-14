@@ -29,21 +29,22 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  actors: "Actors"
-  about: "About"
-  contacts: "Contacts"
-  contact: "Contact"
-  photos: "Photo"
-  news: "News"
-  other_videos: "Other videos:"
-  footer: "© 2023 Carrelo Squad. All rights reserved."
-  height: "Height"
-  eyes: "Eyes"
-  hair: "Hair"
+pt:
+  actors: "Actores"
+  about: "Sobre"
+  contacts: "Contactos"
+  contact: "Contactar"
+  photos: "Fotos"
+  news: "Noticias"
+  other_videos: "Outros vídeos:"
+  footer: "© 2023 Carrelo Squad. Todos os direitos reservados. 
+  <a href='https://www.livroreclamacoes.pt/Inicio/' target='a_blank' class='text-decoration-none white-font'>Livro de Reclamações</a>"
+  height: "Altura"
+  eyes: "Olhos"
+  hair: "Cabelo"
   subject: "Subject"
   message: "Message"
-  send: "Send"
-  email_placeholder: "example@gmail.com"
-  subject_placeholder: "Message subject.."
-  message_placeholder: "Your message.."
+  send: "Enviar"
+  email_placeholder: "exemplo@gmail.com"
+  subject_placeholder: "Título da sua mensagem.."
+  message_placeholder: "A sua mensagem.."

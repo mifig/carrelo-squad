@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_in: "admin" }
   
   root "actors#index"
+  post "/en", to: "locales#set_en"
+  post "/pt", to: "locales#set_pt"
 
   resources :actors, param: :name do
     resources :links, only: [:index, :create, :update]
     resources :articles, only: [:index, :create, :update]
+    delete :delete_photo
   end
 
   resources :links, only: [:destroy]

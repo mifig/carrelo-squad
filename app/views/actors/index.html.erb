@@ -1,6 +1,6 @@
 <div class="container-actors margin-top-index m-5">
   <div class="actors-grid">
-    <p class="category-actors">_________ ACTORES</p>
+    <p class="category-actors">_________ <%= t("actors").upcase %></p>
     <% @actors.each do |actor| %>
       <div class="actor-card-main">
         <%= link_to actor_path(actor), class: "actor-card-link mx-auto d-block" do %>

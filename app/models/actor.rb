@@ -8,7 +8,7 @@ class Actor < ApplicationRecord
   has_one_attached :pt_cv
   has_one_attached :en_cv
 
-  validates :first_name, :last_name, :bio, :height, :hair, :eyes, :primary_photo, presence: true
+  validates :first_name, :last_name, :bio, :bio_en, :height, :hair, :hair_en, :eyes, :eyes_en, :primary_photo, presence: true
   validates :first_name, uniqueness: { scope: :last_name }
   validates :email, uniqueness: true
   validates :phone_number, uniqueness: true

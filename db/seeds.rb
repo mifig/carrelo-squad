@@ -66,9 +66,15 @@ actor1 = Actor.new(
                 Desde então construiu uma sólida carreira em Portugal em televisão, cinema e teatro, sendo um dos nomes mais aplaudidos da sua geração.
                 No seu vasto currículo contam-se também participações em vários projectos internacionais.
                 Em 2012 é uma das fundadoras do Teatro do Vão.",
+          bio_en: "She debuted professionally as an actress in 2000 with the enormous television success Jardins Proibidos.
+                Since then he built a solid career in Portugal in television, cinema and theater, being one of the most applauded names of his generation.
+                His vast curriculum also includes participation in several international projects.
+                In 2012 she is one of the founders of Teatro do Vai.",
           height: 169,
           eyes: "Castanhos",
-          hair: "Brunette"
+          eyes_en: "Brown",
+          hair: "Brunette",
+          hair_en: "Brunette",
         )
 
 file1 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/0a399f9d-2ddf-4f1d-83e1-09e0c90d9378.jpg/87e544e5459cc5638a99a23de1816723da7ce44b07e5c55d82e3cc26f09d6177/c_limit,f_jpg,h_1200,q_80,w_1200")
@@ -111,9 +117,15 @@ actor2 = Actor.new(
         Estudou em E.B.1 Guetim. Ator que começou, com 16 anos, a formação teatral na Academia Contemporânea do Espectáculo no Porto, de onde é natural.
         Neste momento frequenta a Escola Superior de Teatro e Cinema, em Lisboa.
         Trabalha profissionalmente em teatro, televisão e cinema. Vive na capital, Lisboa.",
+  bio_en: "Vítor Silva Costa is a Portuguese actor (born 5 May 1992 in Porto).
+        Studied at E.B.1 Guetim. Actor who began, at the age of 16, his theater training at Academia Contemporânea do Especçou in Porto, where he was born.
+        At the moment, he is attending the Escola Superior de Teatro e Cinema, in Lisbon.
+        He works professionally in theatre, television and film. He lives in the capital, Lisbon.",
   height: 177,
   eyes: "Castanhos",
-  hair: "Preto"
+  eyes_en: "Brown",
+  hair: "Preto",
+  hair_en: "Black"
 )
 file2 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/11e5f95d-6ac0-4c41-a775-c8caa8c10efc.jpeg/c80a6b34effac39c9429840e6b65d9e3d8b663c19cdecdaae6403553db860325/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor2.primary_photo.attach(io: file2, filename: "#{actor2.first_name}-#{actor2.last_name}", content_type: "image/png")
@@ -129,9 +141,15 @@ actor3 = Actor.new(
         Como cantar e ser atriz. É nos palcos que se agiganta, mas é na vida que se conhece por inteiro, sem nunca sucumbir ao preconceito.
         Nesta paleta de sonhos, já viveu em Inglaterra e tem em Nova Iorque a sua casa.
         Aos 28 anos, contudo, encontrou em Lisboa um lar, tendo regressado para integrar o elenco do espetáculo Avenida Q.",
+  bio_en: "In a life full of color, Raquel is a breath of fresh air that refuses labels and just looks for happiness in everything she does.
+        How to sing and be an actress. It's on the stages that it grows, but it's in life that it knows itself in its entirety, without ever succumbing to prejudice.
+        In this palette of dreams, he has already lived in England and has his home in New York.
+        At the age of 28, however, he found a home in Lisbon, having returned to join the cast of the show Avenida Q.",
   height: 165,
   eyes: "Castanho Claro",
-  hair: "Loiro"
+  eyes_en: "Light Brown",
+  hair: "Loiro",
+  hair_en: "Blond"
 )
 file3 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/56bce039-168a-4d65-bcdf-49cf81439b75.jpg/d3b90f2d38ed012c934c68cabf5fc7bebfd51f80cdd3227c064ce1f8fbbba955/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor3.primary_photo.attach(io: file3, filename: "#{actor3.first_name}-#{actor3.last_name}", content_type: "image/png")
@@ -147,9 +165,15 @@ actor4 = Actor.new(
         Fez a série T2 para 3, que começou na internet em 2008 e que passou para a RTP1 em 2009.
         Participou na sétima série de Morangos com Açúcar, no papel de Isabel Faria.
         Em 2011, participou também na série da SIC A Família Mata, juntamente com Rita Blanco e José Pedro Gomes e integrou o elenco principal da série Pai à Força,com a personagem Laura Ribeiro.",
+  bio_en: "Ana Catarina da Silva Varela (16 de Maio de 1988, Paço dos Negros), conhecida apenas como Ana Varela, é uma atriz portuguesa.
+        Fez a série T2 para 3, que começou na internet em 2008 e que passou para a RTP1 em 2009.
+        Participou na sétima série de Morangos com Açúcar, no papel de Isabel Faria.
+        Em 2011, participou também na série da SIC A Família Mata, juntamente com Rita Blanco e José Pedro Gomes e integrou o elenco principal da série Pai à Força,com a personagem Laura Ribeiro.",
   height: 163,
   eyes: "Castanho Claro",
-  hair: "Castanho"
+  eyes_en: "Castanho Claro",
+  hair: "Castanho",
+  hair_en: "Castanho"
 )
 file4 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/152e915f-3331-4b80-8e1d-754b570f6726.JPG/93df1eb36d381ee1538780f0102fb50e33507cef66b690ce5bd2fe673f6bbcb5/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor4.primary_photo.attach(io: file4, filename: "#{actor4.first_name}-#{actor4.last_name}", content_type: "image/png")
@@ -163,9 +187,13 @@ actor5 = Actor.new(
   last_name: "Albuquerque",
   bio: "Frequentou o curso de Teatro no Conservatório.
         Em teatro participou em Confissões de mulheres dos 30. Integrou no elenco de Ana e os Sete, Mundo Meu, A Lenda da Garça, Malucos do Riso, Uma Aventura: Entre as Duas Margens do Rio, Deixa que Te Leve, entre outros.",
+  bio_en: "Frequentou o curso de Teatro no Conservatório.
+        Em teatro participou em Confissões de mulheres dos 30. Integrou no elenco de Ana e os Sete, Mundo Meu, A Lenda da Garça, Malucos do Riso, Uma Aventura: Entre as Duas Margens do Rio, Deixa que Te Leve, entre outros.",
   height: 163,
   eyes: "Verdes",
-  hair: "Loiro"
+  eyes_en: "Verdes",
+  hair: "Loiro",
+  hair_en: "Loiro"
 )
 file5 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/c76d0743-885b-4566-874a-f7fe7db896c3.jpg/cc9a3e4987e4a159aebef1e9738e7fd63a1dadec1491f4fd2a8ae48f813a42bc/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor5.primary_photo.attach(io: file5, filename: "#{actor5.first_name}-#{actor5.last_name}", content_type: "image/png")
@@ -178,9 +206,12 @@ actor6 = Actor.new(
   first_name: "Madalena", 
   last_name: "Brandão",
   bio: "Madalena de Azevedo Cordeiro Norton Brandão mais conhecida por Madalena Brandão (Lisboa, 7 de Março em 1980) é uma actriz portuguesa. Popularizou-se com a personagem Camila em Super Pai, continuando depois a integrar o elenco de várias séries e novelas. Em Abril de 2019 lançou, juntamente com Joana Seixas, um blogue na plataforma SAPO com o objetivo de ciar um espaço livre de reflexão sobre a sutentabilidade.",
+  bio_en: "Madalena de Azevedo Cordeiro Norton Brandão mais conhecida por Madalena Brandão (Lisboa, 7 de Março em 1980) é uma actriz portuguesa. Popularizou-se com a personagem Camila em Super Pai, continuando depois a integrar o elenco de várias séries e novelas. Em Abril de 2019 lançou, juntamente com Joana Seixas, um blogue na plataforma SAPO com o objetivo de ciar um espaço livre de reflexão sobre a sutentabilidade.",
   height: 164,
   eyes: "Castanho Verde",
-  hair: "Loiro"
+  eyes_en: "Castanho Verde",
+  hair: "Loiro",
+  hair_en: "Loiro"
 )
 file6 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/5c831c27-7bd6-4728-9539-fc0cd5a89a25.JPG/2e4d5beae3fc2fda8fe7024877e481817a84a4947b6a3a5e88127af8cce37be4/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor6.primary_photo.attach(io: file6, filename: "#{actor6.first_name}-#{actor6.last_name}", content_type: "image/png")
@@ -193,9 +224,12 @@ actor7 = Actor.new(
   first_name: "Bárbara", 
   last_name: "Branco",
   bio: "Madalena de Azevedo Cordeiro Norton Brandão mais conhecida por Madalena Brandão (Lisboa, 7 de Março em 1980) é uma actriz portuguesa. Popularizou-se com a personagem Camila em Super Pai, continuando depois a integrar o elenco de várias séries e novelas. Em Abril de 2019 lançou, juntamente com Joana Seixas, um blogue na plataforma SAPO com o objetivo de ciar um espaço livre de reflexão sobre a sutentabilidade.",
+  bio_en: "Madalena de Azevedo Cordeiro Norton Brandão mais conhecida por Madalena Brandão (Lisboa, 7 de Março em 1980) é uma actriz portuguesa. Popularizou-se com a personagem Camila em Super Pai, continuando depois a integrar o elenco de várias séries e novelas. Em Abril de 2019 lançou, juntamente com Joana Seixas, um blogue na plataforma SAPO com o objetivo de ciar um espaço livre de reflexão sobre a sutentabilidade.",
   height: 165,
   eyes: "Castanho",
-  hair: "Castanho"
+  eyes_en: "Castanho",
+  hair: "Castanho",
+  hair_en: "Castanho"
 )
 file7 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/1fa93a9c-0a4f-4bfa-9165-3ff57a89625f.jpg/1fed4dbee45b9c9e7a0bf557fce41f91e28182383d18478b89a2ec3ea5d08360/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor7.primary_photo.attach(io: file7, filename: "#{actor7.first_name}-#{actor7.last_name}", content_type: "image/png")
@@ -209,9 +243,13 @@ actor8 = Actor.new(
   last_name: "Tavares",
   bio: "Soraia tem 21 anos, é atriz e vem de Carnaxide. Vive com a mãe, que é empregada doméstica, e tem o pai em Cabo Verde há 6 anos (tem uma irmã na Suíça e um irmão no Barreiro). Soraia está no 1º ano da escola superior de teatro e cinema e faz parte do elenco do novo espetáculo de La Féria, ainda em ensaios. Tem feito vários musicais e é nesse âmbito que costuma cantar.
         Está no mundo da música desde os 16. Começou na igreja, mais tarde entrou para um musical amador e foi então que se desenvolveu o seu percurso. Como formação, tirou um curso de teatro musical, onde tinha aulas de canto. O seu género de eleição é o soul e como artistas preferidos cita Beyoncé, Alicia Keys, HMB, Etta James, Rui Veloso…",
+  bio_en: "Soraia tem 21 anos, é atriz e vem de Carnaxide. Vive com a mãe, que é empregada doméstica, e tem o pai em Cabo Verde há 6 anos (tem uma irmã na Suíça e um irmão no Barreiro). Soraia está no 1º ano da escola superior de teatro e cinema e faz parte do elenco do novo espetáculo de La Féria, ainda em ensaios. Tem feito vários musicais e é nesse âmbito que costuma cantar.
+        Está no mundo da música desde os 16. Começou na igreja, mais tarde entrou para um musical amador e foi então que se desenvolveu o seu percurso. Como formação, tirou um curso de teatro musical, onde tinha aulas de canto. O seu género de eleição é o soul e como artistas preferidos cita Beyoncé, Alicia Keys, HMB, Etta James, Rui Veloso…",
   height: 162,
   eyes: "Castanho",
-  hair: "Castanho"
+  eyes_en: "Castanho",
+  hair: "Castanho",
+  hair_en: "Castanho"
 )
 file8 = URI.open("https://d205pfv3qf1itp.cloudfront.net/s3/castupload-com/production/ddf45afb-5808-4a85-ac84-f9447cea0a53.jpeg/8bd8f753104a1a157123bb464778a4638c5b7ace899e046f804da6861587b20e/c_limit,f_jpg,h_1200,q_80,w_1200")
 actor8.primary_photo.attach(io: file8, filename: "#{actor8.first_name}-#{actor8.last_name}", content_type: "image/png")
