@@ -35,6 +35,15 @@
   width: 50%;
 }
 
+.actor-photo-legend {
+  font-size: 9px;
+  bottom: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
 .actor-name {
   font-size: 32px;
   font-weight: 400;
