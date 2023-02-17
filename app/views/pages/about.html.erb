@@ -1,9 +1,7 @@
 <div class="margin-top-show">
   <div class="white-bg px-5 py-5">
     <h2 class="fw-light">_________ <%= t("about").upcase %></h2>
-    <p class="text-justify">This is a paragraph with Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus vitae enim sit amet lacinia. Nunc sed tempor sem, id vestibulum sem. Duis volutpat vulputate diam, in tempus nisi laoreet id. Duis sed leo non nibh rutrum viverra. Sed interdum libero sed justo porttitor, vel consequat est faucibus. Cras at orci lacus. Vivamus sed facilisis erat, ut feugiat diam.
-       Donec ex tellus, pretium ac vehicula sed, ornare id mi. Curabitur metus magna, suscipit eget ullamcorper a, lobortis sit amet felis. Proin pretium magna rutrum velit ornare mollis. Nulla id ligula sapien. Vivamus scelerisque quam tortor, eget maximus nibh aliquet eget. Nulla sit amet posuere ipsum, at rhoncus est. Nam ac gravida nisl.
-    </p>
+    <p class="text-justify" style="white-space: break-spaces"><%= I18n.locale == :pt ? User.first.about : User.first.about_en %></p>
   </div>
 
   <div class="black-bg px-5 py-5">
@@ -17,9 +15,7 @@
       </div>
       <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675337671/production/rita_carrelo_r01v2d.jpg", class: "about-image" %>
       <div>
-        <p class="text-justify">This is a paragraph with Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus vitae enim sit amet lacinia. Nunc sed tempor sem, id vestibulum sem. Duis volutpat vulputate diam, in tempus nisi laoreet id. Duis sed leo non nibh rutrum viverra. Sed interdum libero sed justo porttitor, vel consequat est faucibus. Cras at orci lacus. Vivamus sed facilisis erat, ut feugiat diam.
-                                Donec ex tellus, pretium ac vehicula sed, ornare id mi. Curabitur metus magna, suscipit eget ullamcorper a, lobortis sit amet felis. Proin pretium magna rutrum velit ornare mollis. Nulla id ligula sapien. Vivamus scelerisque quam tortor, eget maximus nibh aliquet eget. Nulla sit amet posuere ipsum, at rhoncus est. Nam ac gravida nisl.
-        </p>
+        <p class="text-justify" style="white-space: break-spaces"><%= I18n.locale == :pt ? User.first.bio : User.first.bio_en %></p>
       </div>
     </div>
   </div>
@@ -30,7 +26,7 @@
       <div class="w-100">
         <div class="mb-3">
           <p class="mb-0">+351 91 781 2561</p>
-          <p>rscarrelo@gmail.com</p>
+          <p><%= User.first.email %></p>
         </div>
         <%# <div>
           <p class="mb-0 text-decoration-underline">MORADA:</p>

@@ -34,6 +34,6 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/footer" unless (action_name == "show" || controller_name == "sessions" || (controller_name == "actors" && (action_name == "new" || action_name == "edit" || action_name == "update" || action_name == "create")) || controller_name == "links" || controller_name == "messages" || controller_name == "articles") %>
+    <%= render "shared/footer" unless (action_name == "show" || controller_name == "sessions" || (controller_name == "actors" && (action_name == "new" || action_name == "edit" || action_name == "update" || action_name == "create")) || controller_name == "links" || controller_name == "messages" || controller_name == "articles" || controller_name == "registrations") %>
   </body>
 </html>
