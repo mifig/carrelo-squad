@@ -9,7 +9,9 @@
                   autofocus: true %>
       <div class="d-flex">
         <%= f.input :cast_pdf, as: :file, input_html: { data: { action: "change->actor#uploadPrimaryPhoto", actor_target: "photoButton" }} %>
-        <%= cl_image_tag resource.cast_pdf.key + ".png", class: "ms-2", style: "width: 100px; object-fit: contain;" %>
+        <% if resource.cast_pdf.attached? %>
+          <%= cl_image_tag resource.cast_pdf.key + ".png", class: "ms-2", style: "width: 100px; object-fit: contain;" %>
+        <% end %>
       </div>
       <%= f.input :bio,
                   required: true,
