@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   has_one_attached :image
   has_one_attached :pdf
 
-  validates_presence_of :url, unless: :pdf?
+  # validates_presence_of :url, unless: :pdf?
   validates :url, uniqueness: true
 
   def pdf?
