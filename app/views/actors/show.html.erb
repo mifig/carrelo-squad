@@ -29,12 +29,48 @@
       <p class="actor-bio actor-p m-0"><%= I18n.locale == :pt ? @actor.bio : @actor.bio_en %></p>
     </div>
     
-    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
+    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 215px">
       <p class="category-title">_________ INFO</p>
-      <p class="mb-0 actor-p"><span class="actor-info"><%= t("height").upcase %></span> <%= @actor.height %> cm</p>
-      <p class="mb-0 actor-p"><span class="actor-info"><%= t("eyes").upcase %></span> <%= I18n.locale == :pt ? @actor.eyes.capitalize : @actor.eyes_en.capitalize %></p>
-      <p class="mb-0 actor-p"><span class="actor-info"><%= t("hair").upcase %></span> <%= I18n.locale == :pt ? @actor.hair.capitalize : @actor.hair_en.capitalize %></p>
-      <p class="mb-0 actor-p"><span class="actor-info">AGE RANGE</span> <%= @actor.min_age %> - <%= @actor.max_age %></p>
+      <div class="mb-0 actor-p row">
+        <div class="actor-info-header">
+          <span><%= t("height").upcase %></span>
+        </div>
+        <div class="actor-info-content">
+          <%= @actor.height %> cm
+        </div>
+      </div>
+      <div class="mb-0 actor-p row">
+        <div class="actor-info-header">
+          <span><%= t("eyes").upcase %></span>
+        </div>
+        <div class="actor-info-content">
+          <%= I18n.locale == :pt ? @actor.eyes.capitalize : @actor.eyes_en.capitalize %>
+        </div>
+      </div>
+      <div class="mb-0 actor-p row">
+        <div class="actor-info-header">
+          <span><%= t("hair").upcase %></span>
+        </div>
+        <div class="actor-info-content">
+          <%= I18n.locale == :pt ? @actor.hair.capitalize : @actor.hair_en.capitalize %>
+        </div>
+      </div>
+      <div class="mb-0 actor-p row">
+        <div class="actor-info-header">
+          <span>AGE RANGE</span>
+        </div>
+        <div class="actor-info-content">
+          <%= @actor.min_age %> - <%= @actor.max_age %>
+        </div>
+      </div>
+      <div class="mb-0 actor-p row">
+        <div class="actor-info-header">
+          <span>SKILLS</span>
+        </div>
+        <div class="actor-info-content">
+          <span><%= I18n.locale == :pt ? @actor.skills : @actor.skills_en %></span>
+        </div>
+      </div>
     </div>
 
     <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
@@ -52,9 +88,9 @@
       <p class="category-title">_________ VIDEOS</p>
       <% @videos.each do |link| %>
         <% if link.social.name == "Youtube" %>
-          <iframe data-video-height-target="youtubeFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.social.url %><%= link.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="youtube-frame" data-video-height-target="youtubeFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.social.url %><%= link.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <% elsif link.social.name == "Vimeo" %>
-          <iframe data-video-height-target="vimeoFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.url %>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="vimeo-frame" data-video-height-target="vimeoFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.url %>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         <% end %>
       <% end %>
 

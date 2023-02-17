@@ -34,6 +34,11 @@
   </div>
 
   <div class="form-input-container mb-3">
+    <%= f.input :skills, label: "Skills", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+    <%= f.input :skills_en, label: "Skills (Inglês)", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
+  </div>
+
+  <div class="form-input-container mb-3">
     <label class="mb-3">
       <%= f.input :primary_photo, as: :file, label: "Foto Principal", input_html: { class: "actor-form-input d-none", data: { action: "change->actor#uploadPrimaryPhoto" }}, label_html: { class: "m-0" } %>
       <div class="d-flex">
