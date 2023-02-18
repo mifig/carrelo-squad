@@ -16,4 +16,14 @@ class Actor < ApplicationRecord
   def to_param
     "#{first_name}-#{last_name}"
   end
+
+  def ordered_photos
+    photos.sort_by{ |photo| ordered_photo_ids.index(photo.id) || (photo.id*1000) }
+  end
+
+  def ordered_photo_ids=(ids)
+    super(ids.map(&:to_i)) # convert any ids passed to this method to integer
+                           # this is just for security reasons,
+                           # you don't need to do this for the feature to work
+  end
 end

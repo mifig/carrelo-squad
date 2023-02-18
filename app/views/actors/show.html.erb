@@ -76,7 +76,7 @@
       <p class="category-title">_________ <%= t("photos").upcase %></p>
       <div class="actor-photos-container">
         <% j = 1 %>
-        <% @actor.photos.each do |photo| %>
+        <% @actor.ordered_photos.each do |photo| %>
           <%= cl_image_tag photo.key, class: "actor-photo", data: { controller: "actor-photos", action: "click->actor-photos#slide", photo_id: j } %>
           <% j += 1 %>
         <% end %>
@@ -84,7 +84,9 @@
     </div>
 
     <div class="position-relative py-4 px-5" style="min-height: 175px" data-controller="video-height" data-action="resize@window->video-height#setVideoHeight">
-      <p class="category-title">_________ VIDEOS</p>
+      <% if @videos.present? %>
+        <p class="category-title">_________ VIDEOS</p>
+      <% end %>
       <% @videos.each do |link| %>
         <% if link.social.name == "Youtube" %>
           <iframe class="youtube-frame" data-video-height-target="youtubeFrame" style="max-width: 100%" width="100%" height="<%= 600 * (9.fdiv(16)) %>" src="<%= link.social.url %><%= link.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

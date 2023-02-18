@@ -11,7 +11,7 @@
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#photo-placeholder-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Placeholder Slide 1"></button>
     <% i = 1 %>
-    <% actor.photos.each do |photo| %>
+    <% actor.ordered_photos.each do |photo| %>
       <button type="button" data-bs-target="#photo-placeholder-carousel" data-bs-slide-to="<%= i %>" aria-label="Placeholder Slide <%= i + 1 %>"></button>
       <% i += 1 %>
     <% end %>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <% actor.photos.each do |photo| %>
+    <% actor.ordered_photos.each do |photo| %>
       <div class="carousel-item">
         <div class="actor-img-col text-center" style="background: url(<%= cl_image_path photo.key %>); background-position: center; background-size: contain; background-repeat: no-repeat;">
           <div class="h-100 w-100 actor-card-hover"></div>

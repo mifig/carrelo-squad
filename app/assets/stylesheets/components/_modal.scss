@@ -6,4 +6,6 @@
 .actor-modal-img {
   width: 100vw;
   object-fit: contain;
+  height: calc(100vh - 130px - 80px);
+  object-position: center;
 }
