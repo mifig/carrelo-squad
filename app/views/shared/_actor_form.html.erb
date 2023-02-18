@@ -1,4 +1,4 @@
-<%= simple_form_for actor, data: { actor_target: "form" } do |f| %>
+<%= simple_form_for actor, data: { controller: "order-photos", actor_target: "form", order_photos_target: "form" } do |f| %>
   <div class="form-input-container mb-3">
     <%= f.input :first_name, label: "Primeiro Nome", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
     <%= f.input :last_name, label: "Último Nome", wrapper_html: { class: "form-double-input-wrapper" }, input_html: { class: "actor-form-input" }, label_html: { class: "m-0" } %>
@@ -49,16 +49,17 @@
 
   <div class="mb-4">
     <p>Outras fotos</p>
-    <div class="actor-photos-container d-flex gap-1">
-      <% @actor.photos.each do |photo| %>
-        <div class="position-relative">
+    <div class="actor-photos-container d-flex gap-1" data-order-photos-target="photosContainer" style="height: 140px;">
+      <% @actor.ordered_photos.each do |photo| %>
+        <div class="position-relative ordered-photo-div" style="background-image: url('<%= cl_image_path photo.key %>')" data-target="photo" data-photo-id="<%= photo.id %>">
           <%= link_to "Apagar", actor_delete_photo_path(@actor, photo_id: photo.signed_id), data: { turbo_method: :delete, turbo_confirm: "Tem a certeza que quer apagar esta fotografia?" },class: "delete-photo-btn" %>
-          <%= cl_image_tag photo.key, class: "actor-photo", style: "cursor: unset;" %>
+          <%#= cl_image_tag photo.key, class: "actor-photo", style: "cursor: unset;" %>
         </div>
       <% end %>
     </div>
+    <%= f.input :ordered_photo_ids, as: :hidden, label: false, wrapper_html: { style: "margin: 0 !important" }, input_html: { multiple: true, class: "actor-form-input d-none", data: { order_photos_target: "input" } } %>
     <label class="form-double-input-wrapper">
-      <% @actor.photos.each do |photo| %>
+      <% @actor.ordered_photos.each do |photo| %>
         <%= f.hidden_field :photos, multiple: true, value: photo.signed_id, class: "hidden-photos" %>
       <% end %>
       <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: "actor-form-input d-none", data: { action: "change->actor#uploadPhotos" } }, label_html: { class: "m-0" } %>
@@ -66,7 +67,6 @@
         <a data-actor-target="photosButton" class="black-btn border-0 text-center w-100" style="cursor: pointer; white-space: nowrap;">Carregar Fotos</a>
       </div>
     </label>
-    
   </div>
 
   <div class="form-input-container">

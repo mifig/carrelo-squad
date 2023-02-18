@@ -13,5 +13,8 @@ application.register("actor-photos", ActorPhotosController)
 import MessagesController from "./messages_controller"
 application.register("messages", MessagesController)
 
+import OrderPhotosController from "./order_photos_controller"
+application.register("order-photos", OrderPhotosController)
+
 import VideoHeightController from "./video_height_controller"
 application.register("video-height", VideoHeightController)

@@ -1,8 +1,8 @@
-<div id="photos-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="20000">
+<div id="photos-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000000">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#photos-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <% i = 1 %>
-    <% actor.photos.each do |photo| %>
+    <% actor.ordered_photos.each do |photo| %>
       <button type="button" data-bs-target="#photos-carousel" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i + 1 %>"></button>
       <% i += 1 %>
     <% end %>
@@ -13,7 +13,7 @@
       <%= cl_image_tag(actor.primary_photo.key, class: "actor-modal-img") if actor.primary_photo.attached? %>
     </div>
 
-    <% actor.photos.each do |photo| %>
+    <% actor.ordered_photos.each do |photo| %>
       <div class="carousel-item">
         <%= cl_image_tag photo.key, class: "actor-modal-img" %>
       </div>

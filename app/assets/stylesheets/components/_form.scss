@@ -111,6 +111,13 @@ legend ~ div.form-check:first-of-type {
   display: none;
 }
 
+.ordered-photo-div {
+  min-width: 100px; 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
 @media(max-width: 1000px) {
   .form-double-input-wrapper {
     width: 100%;
