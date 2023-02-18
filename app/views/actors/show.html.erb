@@ -103,14 +103,18 @@
       <div class="mt-4 text-center">
         <div class="d-flex flex-column justify-content-center gap-3" style="margin: 0 auto; width: 240px; max-width: 100%;">
           <% if @actor.pt_cv.attached? %>
-            <%= link_to cloudinary_url(@actor.pt_cv.key), class: "white-btn", target: "_blank" do %>
-              → DONWLOAD CV (PT)
+            <% if I18n.locale == :pt %>
+              <%= link_to cloudinary_url(@actor.pt_cv.key), class: "white-btn", target: "_blank" do %>
+                → DONWLOAD CV
+              <% end %>
             <% end %>
           <% end %>
 
           <% if @actor.en_cv.attached? %>
-            <%= link_to cloudinary_url(@actor.en_cv.key), class: "white-btn", target: "_blank" do %>
-              → DONWLOAD CV (EN)
+            <% if I18n.locale == :en %>
+              <%= link_to cloudinary_url(@actor.en_cv.key), class: "white-btn", target: "_blank" do %>
+                → DONWLOAD CV
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -133,7 +137,7 @@
     <% if @actor.articles.present? %>
       <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column white-bg" style="min-height: 200px">
         <p class="category-title">_________ <%= t("news").upcase %></p>
-        <div class="actor-photos-container actor-photos-container-mobile">
+        <div class="actor-photos-container actor-photos-container-mobile p-1">
           <% @actor.articles.each do |article| %>
             <% if article.pdf.attached? %>
               <%= link_to cloudinary_url(article.pdf.key), class: "mb-3 text-decoration-none", target: "a_blank" do %>
