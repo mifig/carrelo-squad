@@ -37,7 +37,8 @@ en:
   photos: "Photo"
   news: "News"
   other_videos: "Other videos:"
-  footer: "© 2023 Carrelo Squad. All rights reserved."
+  footer: "© 2023 Carrelo Squad. All rights reserved.
+  <a href='https://www.livroreclamacoes.pt/Inicio/' target='a_blank' class='text-decoration-none' style='color: unset'>Complaints Book</a>"
   height: "Height"
   eyes: "Eyes"
   hair: "Hair"
