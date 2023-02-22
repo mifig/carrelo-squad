@@ -4,12 +4,14 @@
     <% @actors.each do |actor| %>
       <div class="actor-card-main">
         <%= link_to actor_path(actor), class: "actor-card-link mx-auto d-block" do %>
-          <div class="actor-card" style="background-image: url(<%= cl_image_path actor.primary_photo.key if actor.primary_photo.attached? %>)">
-            <div class="h-100 w-100 actor-card-hover">
+          <div class="actor-card-wrapper">
+            <div class="actor-card" style="background-image: url(<%= cl_image_path actor.primary_photo.key if actor.primary_photo.attached? %>)">
+              <div class="h-100 w-100 actor-card-hover">
+              </div>
+              <div class="actor-card-border">
+              </div>
+              <p class="actor-card-name-index"><%= actor.first_name.upcase %> <%= actor.last_name.upcase %></p>
             </div>
-            <div class="actor-card-border">
-            </div>
-            <p class="actor-card-name-index"><%= actor.first_name.upcase %> <%= actor.last_name.upcase %></p>
           </div>
         <% end %>
         <% if current_user %> 
