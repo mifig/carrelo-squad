@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     @message.save
 
     respond_to do |format|
-      format.html { redirect_to about_path, notice: t("message_sent") }
+      format.html { redirect_to about_path, notice: I18n.locale == :en ? "Message sent!" : "Mensagem enviada!" }
       format.text { render partial: "shared/message_form", locals: {message: @message}, formats: [:html] }
     end
   end
