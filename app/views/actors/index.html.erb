@@ -14,14 +14,14 @@
             </div>
           </div>
         <% end %>
-        <% if current_user %> 
-          <% if current_user.admin %>
-            <div class="d-flex flex-column w-100 text-center">
-              <%= link_to "EDITAR", edit_actor_path(actor), class: "white-btn admin-btn" %>
-              <%= link_to "APAGAR", actor_path(actor), class: "black-btn admin-btn", data: { turbo_method: "delete", turbo_confirm: "Apagar #{actor.first_name} #{actor.last_name}?"} %>
-            </div>
-          <% end %>
-        <% end %>
+        <%# if current_user %> 
+          <%# if current_user.admin %>
+            <%# <div class="position-absolute d-flex flex-column w-100 text-center" style="bottom: 0px"> %>
+              <%#= link_to "EDITAR", edit_actor_path(actor), class: "white-btn admin-btn" %>
+              <%#= link_to "APAGAR", actor_path(actor), class: "black-btn admin-btn", data: { turbo_method: "delete", turbo_confirm: "Apagar #{actor.first_name} #{actor.last_name}?"} %>
+            <%# </div> %>
+          <%# end %>
+        <%# end %>
       </div>
     <% end %>
   </div>
