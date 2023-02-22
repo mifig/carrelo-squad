@@ -28,7 +28,7 @@ export default class extends Controller {
           const contacts = document.getElementById("contacts")
           
           contacts.insertAdjacentHTML("afterend", `<div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-            Mensagem enviada!
+            Message sent!
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
           </div>`)
