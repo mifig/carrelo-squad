@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_18_100523) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_144659) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_100523) do
     t.text "skills"
     t.text "skills_en"
     t.json "ordered_photo_ids", default: []
+    t.string "languages"
+    t.string "languages_en"
   end
 
   create_table "articles", force: :cascade do |t|

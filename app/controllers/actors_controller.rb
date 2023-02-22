@@ -71,7 +71,7 @@ class ActorsController < ApplicationController
   
 
   def actor_params
-    params.require(:actor).permit(:first_name, :last_name, :email, :phone_number, :bio, :bio_en, :height, :hair, :hair_en, :eyes, :eyes_en, :min_age, :max_age, :skills, :skills_en, :primary_photo, :pt_cv, :en_cv, photos: [], ordered_photo_ids: [])
+    params.require(:actor).permit(:first_name, :last_name, :email, :phone_number, :bio, :bio_en, :height, :hair, :hair_en, :eyes, :eyes_en, :min_age, :max_age, :skills, :skills_en, :languages, :languages_en, :primary_photo, :pt_cv, :en_cv, photos: [], ordered_photo_ids: [])
   end
 
   def ordered_photo_ids_sanitize

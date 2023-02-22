@@ -28,7 +28,7 @@
       <p class="actor-bio actor-p m-0"><%= I18n.locale == :pt ? @actor.bio : @actor.bio_en %></p>
     </div>
     
-    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 215px">
+    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 240px">
       <p class="category-title">_________ INFO</p>
       <div class="mb-0 actor-p row">
         <div class="actor-info-header">
@@ -68,6 +68,14 @@
         </div>
         <div class="actor-info-content">
           <span><%= I18n.locale == :pt ? @actor.skills : @actor.skills_en %></span>
+        </div>
+      </div>
+      <div class="mb-0 actor-p row">
+        <div class="actor-info-header">
+          <span><%= t('languages').upcase %></span>
+        </div>
+        <div class="actor-info-content">
+          <span><%= I18n.locale == :pt ? @actor.languages : @actor.languages_en %></span>
         </div>
       </div>
     </div>

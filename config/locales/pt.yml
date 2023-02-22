@@ -49,6 +49,7 @@ pt:
   subject_placeholder: "Título da sua mensagem.."
   message_placeholder: "A sua mensagem.."
   message_sent: "Mensagem enviada!"
+  languages: "Línguas"
 
   activerecord:
     errors:
