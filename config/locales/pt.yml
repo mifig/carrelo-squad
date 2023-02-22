@@ -48,3 +48,17 @@ pt:
   email_placeholder: "exemplo@gmail.com"
   subject_placeholder: "Título da sua mensagem.."
   message_placeholder: "A sua mensagem.."
+  message_sent: "Mensagem enviada!"
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+  errors:
+    format: '%{message}'
+    messages:
+      # You should also include translations for other ActiveRecord errors such as "empty", "taken", etc.
+      empty: "Campo obrigatório"
+      blank: "Campo obrigatório"
+      required: "Campo obrigatório"
+      taken: "Já criado"

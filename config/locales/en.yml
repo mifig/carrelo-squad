@@ -48,3 +48,4 @@ en:
   email_placeholder: "example@gmail.com"
   subject_placeholder: "Message subject.."
   message_placeholder: "Your message.."
+  message_sent: "Message sent!"
