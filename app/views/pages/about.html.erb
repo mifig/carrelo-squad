@@ -13,8 +13,12 @@
         <div class="actor-card-border">
         </div>
       </div>
-      <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675337671/production/rita_carrelo_r01v2d.jpg", class: "about-image" %>
-      <div>
+      <% if User.first.photo.attached? %>
+        <%= cl_image_tag User.first.photo.key, class: "about-image" %>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675337671/production/rita_carrelo_r01v2d.jpg", class: "about-image" %>
+      <% end %>
+      <div class="flex-grow-1">
         <p class="text-justify" style="white-space: break-spaces"><%= I18n.locale == :pt ? User.first.bio : User.first.bio_en %></p>
       </div>
     </div>
@@ -25,7 +29,7 @@
     <div class="d-flex gap-4 justify-content-between about-container">
       <div class="w-100">
         <div class="mb-3">
-          <p class="mb-0">+351 91 781 2561</p>
+          <p class="mb-0"><%= User.first.mobile %></p>
           <p><%= User.first.email %></p>
         </div>
         <%# <div>

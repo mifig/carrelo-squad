@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:cast_pdf, :about, :about_en, :bio, :bio_en])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:cast_pdf, :photo, :about, :about_en, :bio, :bio_en, :mobile])
   end
 
   def default_url_options

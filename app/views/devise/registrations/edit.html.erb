@@ -4,8 +4,16 @@
   <%= simple_form_for(resource, as: resource_name, url: user_registration_path(resource_name), data: { turbo: :false }, html: { method: :patch }) do |f| %>
 
     <div class="form-inputs">
+      <div class="d-flex">
+        <%= f.input :photo, as: :file, input_html: { data: { action: "change->actor#uploadPrimaryPhoto", actor_target: "photoButton" }} %>
+        <% if resource.photo.attached? %>
+          <%= cl_image_tag resource.photo.key, class: "ms-2", style: "width: 100px; object-fit: contain;" %>
+        <% end %>
+      </div>
       <%= f.input :email,
                   required: false,
+                  autofocus: true %>
+      <%= f.input :mobile,
                   autofocus: true %>
       <div class="d-flex">
         <%= f.input :cast_pdf, as: :file, input_html: { data: { action: "change->actor#uploadPrimaryPhoto", actor_target: "photoButton" }} %>
