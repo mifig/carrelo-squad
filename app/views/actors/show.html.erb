@@ -148,7 +148,7 @@
       <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column white-bg" style="min-height: 200px">
         <p class="category-title">_________ <%= t("news").upcase %></p>
         <div class="actor-photos-container actor-photos-container-mobile p-1">
-          <% @actor.articles.each do |article| %>
+          <% @actor.articles.order(:order_id).each do |article| %>
             <% if article.pdf.attached? %>
               <%= link_to cloudinary_url(article.pdf.key), class: "mb-3 text-decoration-none", target: "a_blank" do %>
                 <%= cl_image_tag article.pdf.key + ".png", class: "article-image" %>

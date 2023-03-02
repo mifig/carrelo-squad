@@ -21,9 +21,15 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to actor_article_path(@actor)
+      respond_to do |format|
+        format.html { redirect_to actor_article_path(@actor) }
+        format.json { render json: { message: "Notícia Atualizada!" }.to_json }
+      end
     else
-      render :index, status: :unprocessable_entity
+      respond_to do |format|
+        format.html { render :index, status: :unprocessable_entity }
+        format.json { render json: { message: "Erro de processamento!" }.to_json }
+      end
     end
   end
 
@@ -45,6 +51,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:url, :image, :pdf)
+    params.require(:article).permit(:url, :image, :pdf, :order_id)
   end
 end

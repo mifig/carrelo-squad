@@ -1,0 +1,23 @@
+<div class="d-flex w-100">
+  <%= simple_form_for [actor, article], html: { class: "flex-grow-1" } do |f| %>
+    <div class="gap-3 article-input-mobile">
+      <div class="d-flex">
+        <%= cl_image_tag article.pdf.key + ".png", class: "article-image-edit" %>
+      </div>
+      <div class="d-flex gap-3 flex-grow-1">
+        <label class="d-flex flex-grow-1" style="cursor: pointer">
+          <%= f.input :pdf, as: :file, label: false, wrapper_html: { style: "display: none" }, input_html: { class: "actor-form-input-black d-none" }, label_html: { class: "mb-0" } %>
+          <div class="d-flex w-100">
+            <p class="black-btn w-100 text-center">PDF</p>
+          </div>
+        </label>
+        <div class="d-flex gap-3" style="height: fit-content">
+          <%= f.button :submit, "Guardar", class: "white-bordered-btn btn-padding rounded-0", style: "height: fit-content" %>
+          <%= link_to article_path(article), class: "align-self-center black-font" ,data: { turbo_method: :delete } do %>
+            <i class="fa-regular fa-square-minus"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
