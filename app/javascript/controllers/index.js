@@ -21,3 +21,6 @@ application.register("order-photos", OrderPhotosController)
 
 import VideoHeightController from "./video_height_controller"
 application.register("video-height", VideoHeightController)
+
+import VideosController from "./videos_controller"
+application.register("videos", VideosController)

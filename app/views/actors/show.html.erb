@@ -104,7 +104,7 @@
       <% end %>
 
       <% @video_links.each do |link| %>
-        <% if link = @video_links.first %>
+        <% if link == @video_links.first %>
           <p class="my-2"><%= t("other_videos") %></p>
         <% end %>
         <a href="<%= link.url %>" target="_blank" class="white-link"><%= link.url %></a>

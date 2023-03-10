@@ -54,9 +54,9 @@
     <div class="form-videos form-black-bg mt-4 px-5 py-4">
       <% if @videos.present? %>
         <p>Videos</p>
-        <div>
+        <div data-controller="videos">
           <% @videos.each do |link| %>
-            <div class="d-flex mb-3 gap-3 w-100">
+            <div class="d-flex mb-3 gap-3 w-100" style="cursor: grab;">
               <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
               <%= simple_form_for [@actor, link], html: { class: "flex-grow-1" } do |f| %>
                 <div class="d-flex">
