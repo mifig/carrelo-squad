@@ -28,24 +28,29 @@
       <p class="actor-bio actor-p m-0"><%= I18n.locale == :pt ? @actor.bio : @actor.bio_en %></p>
     </div>
     
-    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 240px">
+    <div class="white-bg position-relative py-4 px-5 d-flex justify-content-start flex-column gap-1" style="min-height: 175px">
       <p class="category-title">_________ INFO</p>
-      <div class="mb-0 actor-p row">
-        <div class="actor-info-header">
-          <span><%= t("height").upcase %></span>
+      <% if @actor.height.present? %>
+        <div class="mb-0 actor-p row">
+          <div class="actor-info-header">
+            <span><%= t("height").upcase %></span>
+          </div>
+          <div class="actor-info-content">
+            <%= @actor.height %> cm
+          </div>
         </div>
-        <div class="actor-info-content">
-          <%= @actor.height %> cm
+      <% end %>
+      <% if @actor.eyes.present? %>
+        <div class="mb-0 actor-p row">
+          <div class="actor-info-header">
+            <span><%= t("eyes").upcase %></span>
+          </div>
+          <div class="actor-info-content">
+            <%= I18n.locale == :pt ? @actor.eyes.capitalize : @actor.eyes_en.capitalize %>
+          </div>
         </div>
-      </div>
-      <div class="mb-0 actor-p row">
-        <div class="actor-info-header">
-          <span><%= t("eyes").upcase %></span>
-        </div>
-        <div class="actor-info-content">
-          <%= I18n.locale == :pt ? @actor.eyes.capitalize : @actor.eyes_en.capitalize %>
-        </div>
-      </div>
+      <% end %>
+      <% if @actor.hair.present? %>
       <div class="mb-0 actor-p row">
         <div class="actor-info-header">
           <span><%= t("hair").upcase %></span>
@@ -54,30 +59,37 @@
           <%= I18n.locale == :pt ? @actor.hair.capitalize : @actor.hair_en.capitalize %>
         </div>
       </div>
-      <div class="mb-0 actor-p row">
-        <div class="actor-info-header">
-          <span>AGE RANGE</span>
+      <% end %>
+      <% if @actor.min_age.present? && @actor.max_age.present? %>
+        <div class="mb-0 actor-p row">
+          <div class="actor-info-header">
+            <span>AGE RANGE</span>
+          </div>
+          <div class="actor-info-content">
+            <%= @actor.min_age %> - <%= @actor.max_age %>
+          </div>
         </div>
-        <div class="actor-info-content">
-          <%= @actor.min_age %> - <%= @actor.max_age %>
+      <% end %>
+      <% if @actor.skills.present? %>
+        <div class="mb-0 actor-p row">
+          <div class="actor-info-header">
+            <span>SKILLS</span>
+          </div>
+          <div class="actor-info-content">
+            <span><%= I18n.locale == :pt ? @actor.skills : @actor.skills_en %></span>
+          </div>
         </div>
-      </div>
-      <div class="mb-0 actor-p row">
-        <div class="actor-info-header">
-          <span>SKILLS</span>
+      <% end %>
+      <% if @actor.languages.present? %>
+        <div class="mb-0 actor-p row">
+          <div class="actor-info-header">
+            <span><%= t('languages').upcase %></span>
+          </div>
+          <div class="actor-info-content">
+            <span><%= I18n.locale == :pt ? @actor.languages : @actor.languages_en %></span>
+          </div>
         </div>
-        <div class="actor-info-content">
-          <span><%= I18n.locale == :pt ? @actor.skills : @actor.skills_en %></span>
-        </div>
-      </div>
-      <div class="mb-0 actor-p row">
-        <div class="actor-info-header">
-          <span><%= t('languages').upcase %></span>
-        </div>
-        <div class="actor-info-content">
-          <span><%= I18n.locale == :pt ? @actor.languages : @actor.languages_en %></span>
-        </div>
-      </div>
+      <% end %>
     </div>
 
     <div class="position-relative py-4 px-5 d-flex justify-content-between flex-column" style="min-height: 175px">
