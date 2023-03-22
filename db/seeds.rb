@@ -12,9 +12,7 @@ User.create!(
       email: "rscarrelo@gmail.com", 
       password: "111111", 
       bio: "Bio [PT]", 
-      bio_en: "Bio [EN]", 
-      about: "About [PT]", 
-      about_en: "About [EN]",
+      bio_en: "Bio [EN]",
       admin: true)
 puts "   Admin User created!"
 
