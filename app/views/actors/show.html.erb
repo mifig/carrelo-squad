@@ -127,7 +127,7 @@
           <% if @actor.pt_cv.attached? %>
             <% if I18n.locale == :pt %>
               <%= link_to cloudinary_url(@actor.pt_cv.key), class: "white-btn", target: "_blank" do %>
-                → DONWLOAD CV
+                → DOWNLOAD CV
               <% end %>
             <% end %>
           <% end %>
@@ -135,7 +135,7 @@
           <% if @actor.en_cv.attached? %>
             <% if I18n.locale == :en %>
               <%= link_to cloudinary_url(@actor.en_cv.key), class: "white-btn", target: "_blank" do %>
-                → DONWLOAD CV
+                → DOWNLOAD CV
               <% end %>
             <% end %>
           <% end %>
