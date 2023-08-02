@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= @message.content %></p>
+    <%= link_to "Reply to #{@message.email}", "mailto:#{@message.email}?subject=CarreloSquad" %>
+  </body>
+</html>
+
