@@ -4,6 +4,12 @@ Rails.application.configure do
   config.hosts << /\A[a-z\d-]+\.loca\.lt\z/
   
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method     = :postmark
+  # config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
+
+  config.action_mailer.delivery_method = :smtp
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

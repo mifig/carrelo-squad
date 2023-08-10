@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.save
 
+    UserMailer.welcome(@message).deliver_now
+
     respond_to do |format|
       format.html { redirect_to about_path, notice: "Message sent!" }
       format.text { render partial: "shared/message_form", locals: {message: @message}, formats: [:html] }
