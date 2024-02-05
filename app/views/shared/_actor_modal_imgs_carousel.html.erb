@@ -10,13 +10,13 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_tag(actor.primary_photo.key, class: "actor-modal-img") if actor.primary_photo.attached? %>
+      <%= cl_image_tag(actor.primary_photo.key, class: "actor-modal-img", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }) if actor.primary_photo.attached? %>
       <p class="actor-photo-legend text-center" style="bottom: 20px;"><strong>©</strong> <%= actor.primary_photo.filename %></p>
     </div>
 
     <% actor.ordered_photos.each do |photo| %>
       <div class="carousel-item">
-        <%= cl_image_tag photo.key, class: "actor-modal-img" %>
+        <%= cl_image_tag photo.key, class: "actor-modal-img", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
         <p class="actor-photo-legend text-center" style="bottom: 20px;"><strong>©</strong> <%= photo.filename %></p>
       </div>
     <% end %>

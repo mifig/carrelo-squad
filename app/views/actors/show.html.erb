@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@actor.first_name} #{@actor.last_name}" %>
 <% content_for :meta_description, @actor.bio %>
-<% content_for :meta_image, cl_image_path(@actor.primary_photo.key) if @actor.primary_photo.attached? %>
+<% content_for :meta_image, cl_image_path(@actor.primary_photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }) if @actor.primary_photo.attached? %>
 <div class="actor-show-container margin-top-show">
   <%= render "shared/actor_imgs_modal", actor: @actor %>
 
@@ -12,12 +12,12 @@
       <div class="actor-links justify-content-center mx-5 gap-3">
         <% if @imdb_link %>
           <%= link_to @imdb_link.url, target: "_blank" do %>
-            <%= cl_image_tag @imdb_link.social.logo.key, class: "actor-link" %>
+            <%= cl_image_tag(@imdb_link.social.logo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }, class: "actor-link") %>
           <% end %>
         <% end %>
         <% @links.each do |link| %>
           <%= link_to link.url, target: "_blank" do %>
-            <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
+            <%= cl_image_tag(link.social.logo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }, class: "actor-link") %>
           <% end %>
         <% end %>
       </div>
@@ -97,7 +97,7 @@
       <div class="actor-photos-container">
         <% j = 1 %>
         <% @actor.ordered_photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: "actor-photo", data: { controller: "actor-photos", action: "click->actor-photos#slide", photo_id: j } %>
+          <%= cl_image_tag photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }, class: "actor-photo", data: { controller: "actor-photos", action: "click->actor-photos#slide", photo_id: j } %>
           <% j += 1 %>
         <% end %>
       </div>
@@ -144,12 +144,12 @@
         <div class="actor-links-mobile justify-content-center mx-5 mt-4 gap-3">
           <% if @imdb_link %>
             <%= link_to @imdb_link.url, target: "_blank" do %>
-              <%= cl_image_tag @imdb_link.social.logo.key, class: "actor-link" %>
+              <%= cl_image_tag @imdb_link.social.logo.key, class: "actor-link", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
             <% end %>
           <% end %>
           <% @links.each do |link| %>
             <%= link_to link.url, target: "_blank" do %>
-              <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
+              <%= cl_image_tag link.social.logo.key, class: "actor-link", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
             <% end %>
           <% end %>
         </div>
@@ -163,12 +163,12 @@
           <% @actor.articles.order(:order_id).each do |article| %>
             <% if article.pdf.attached? %>
               <%= link_to cloudinary_url(article.pdf.key), class: "mb-3 text-decoration-none", target: "a_blank" do %>
-                <%= cl_image_tag article.pdf.key + ".png", class: "article-image" %>
+                <%= cl_image_tag article.pdf.key + ".png", class: "article-image", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
               <% end %>
             <% else %>
               <%= link_to article.url, class: "mb-3 text-decoration-none", target: "a_blank" do %>
                 <% if article.image.attached? %>
-                  <%= cl_image_tag article.image.key, class: "article-image" %>
+                  <%= cl_image_tag article.image.key, class: "article-image", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
                 <% else %>
                   <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675678100/production/news-placeholder_ydbtx5.jpg", class: "article-image-edit" %>
                 <% end %>

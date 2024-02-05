@@ -19,7 +19,7 @@
 
   <div class="carousel-inner actor-img-carousel">
     <div class="carousel-item active">
-      <div class="actor-img-col text-center" style="background: url(<%= cl_image_path actor.primary_photo.key if actor.primary_photo.attached? %>); background-position: top; background-size: cover; background-repeat: no-repeat;">
+      <div class="actor-img-col text-center" style="background: url(<%= cl_image_path(actor.primary_photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }) if actor.primary_photo.attached? %>); background-position: top; background-size: cover; background-repeat: no-repeat;">
         <div class="actor-img-border"></div>
         <div class="h-100 w-100 actor-card-hover"></div>
         <p class="actor-photo-legend" style="bottom: 20px;"><strong>©</strong> <%= actor.primary_photo.filename %></p>
@@ -29,7 +29,7 @@
 
     <% actor.ordered_photos.each do |photo| %>
       <div class="carousel-item">
-        <div class="actor-img-col text-center" style="background: url(<%= cl_image_path photo.key %>); background-position: center; background-size: contain; background-repeat: no-repeat;">
+        <div class="actor-img-col text-center" style="background: url(<%= cl_image_path photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>); background-position: center; background-size: contain; background-repeat: no-repeat;">
           <div class="h-100 w-100 actor-card-hover"></div>
           <p class="actor-photo-legend" style="bottom: 20px;"><strong>©</strong> <%= photo.filename %></p>
           <p class="actor-card-name" style="bottom: 30px;"><%= actor.first_name.upcase %> <%= actor.last_name.upcase %></p>

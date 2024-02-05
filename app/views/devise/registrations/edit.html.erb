@@ -7,7 +7,7 @@
       <div class="d-flex">
         <%= f.input :photo, as: :file, input_html: { data: { action: "change->actor#uploadPrimaryPhoto", actor_target: "photoButton" }} %>
         <% if resource.photo.attached? %>
-          <%= cl_image_tag resource.photo.key, class: "ms-2", style: "width: 100px; object-fit: contain;" %>
+          <%= cl_image_tag resource.photo.key, class: "ms-2", style: "width: 100px; object-fit: contain;", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
         <% end %>
       </div>
       <%= f.input :email,
@@ -18,7 +18,7 @@
       <div class="d-flex">
         <%= f.input :cast_pdf, as: :file, input_html: { data: { action: "change->actor#uploadPrimaryPhoto", actor_target: "photoButton" }} %>
         <% if resource.cast_pdf.attached? %>
-          <%= cl_image_tag resource.cast_pdf.key + ".png", class: "ms-2", style: "width: 100px; object-fit: contain;" %>
+          <%= cl_image_tag resource.cast_pdf.key + ".png", class: "ms-2", style: "width: 100px; object-fit: contain;", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
         <% end %>
       </div>
       <%= f.input :bio,

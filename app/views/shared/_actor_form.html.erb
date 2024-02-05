@@ -57,7 +57,7 @@
     <% if @actor.ordered_photos.present? %>
       <div class="actor-photos-container d-flex gap-1" data-order-photos-target="photosContainer" style="height: 140px;">
         <% @actor.ordered_photos.each do |photo| %>
-          <div class="position-relative ordered-photo-div" style="background-image: url('<%= cl_image_path photo.key %>'); cursor: grab;" data-target="photo" data-photo-id="<%= photo.id %>">
+          <div class="position-relative ordered-photo-div" style="background-image: url('<%= cl_image_path photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>'); cursor: grab;" data-target="photo" data-photo-id="<%= photo.id %>">
             <%= link_to "Apagar", actor_delete_photo_path(@actor, photo_id: photo.signed_id), data: { turbo_method: :delete, turbo_confirm: "Tem a certeza que quer apagar esta fotografia?" },class: "delete-photo-btn" %>
             <%#= cl_image_tag photo.key, class: "actor-photo", style: "cursor: unset;" %>
           </div>

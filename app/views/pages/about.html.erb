@@ -8,14 +8,14 @@
   <div class="black-bg px-5 py-5">
     <h2 class="fw-light">_________ RITA CARRELO</h2>
     <div class="d-flex gap-5 justify-content-between about-container mt-3">
-      <div class="owner-card my-3 position-relative" style="background-image: url('<%= User.first.photo.attached? ? cl_image_path(User.first.photo.key) : "https://res.cloudinary.com/dvkusogad/image/upload/v1675337671/production/rita_carrelo_r01v2d.jpg" %>'); margin: 0 auto;">
+      <div class="owner-card my-3 position-relative" style="background-image: url('<%= User.first.photo.attached? ? cl_image_path(User.first.photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }) : "https://res.cloudinary.com/dvkusogad/image/upload/v1675337671/production/rita_carrelo_r01v2d.jpg" %>'); margin: 0 auto;">
         <div class="h-100 w-100 actor-card-hover">
         </div>
         <div class="actor-card-border">
         </div>
       </div>
       <% if User.first.photo.attached? %>
-        <%= cl_image_tag User.first.photo.key, class: "about-image" %>
+        <%= cl_image_tag User.first.photo.key, class: "about-image", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
       <% else %>
         <%= image_tag "https://res.cloudinary.com/dvkusogad/image/upload/v1675337671/production/rita_carrelo_r01v2d.jpg", class: "about-image" %>
       <% end %>

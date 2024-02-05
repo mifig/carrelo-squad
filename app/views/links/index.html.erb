@@ -1,5 +1,5 @@
 <div class="actor-show-container margin-top-show">
-  <div class="actor-img-col d-flex justify-content-center align-items-center" style="background: url(<%= cl_image_path @actor.primary_photo.key if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
+  <div class="actor-img-col d-flex justify-content-center align-items-center" style="background: url(<%= cl_image_path(@actor.primary_photo.key, transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" }) if @actor.primary_photo.attached? %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
     <div class="h-100 w-100 actor-card-hover"></div>
     <div class="text-center form-header", style="z-index: 100">
       <h1 class="fw-light"><%= @actor.first_name.upcase %> <%= @actor.last_name.upcase %></h1>
@@ -22,7 +22,7 @@
         <div>
           <% @links.each do |link| %>
             <div class="d-flex mb-3 gap-3 w-100">
-              <%= cl_image_tag link.social.logo.key, class: "actor-link-black", style: "#{"filter: invert(1);" if link.social.name == "Spotlight"}" %>
+              <%= cl_image_tag link.social.logo.key, class: "actor-link-black", style: "#{"filter: invert(1);" if link.social.name == "Spotlight"}", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
               <%= simple_form_for [@actor, link], html: { class: "flex-grow-1" } do |f| %>
                 <div class="d-flex">
                   <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input" } %>
@@ -57,7 +57,7 @@
         <div data-controller="videos">
           <% @videos.each do |link| %>
             <div class="d-flex mb-3 gap-3 w-100" style="cursor: grab;">
-              <%= cl_image_tag link.social.logo.key, class: "actor-link" %>
+              <%= cl_image_tag link.social.logo.key, class: "actor-link", transformation: { quality: "auto", fetch_format: :auto, width: :auto, crop: "scale" } %>
               <%= simple_form_for [@actor, link], html: { class: "flex-grow-1" } do |f| %>
                 <div class="d-flex">
                   <%= f.input :url, label: false, wrapper_html: { style: "margin: 0 !important; flex-grow: 1" }, input_html: { class: "actor-form-input-white" } %>
