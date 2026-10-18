@@ -3,7 +3,7 @@
     <% if current_user.admin %>
       <div class="admin-btns-container d-flex flex-column text-center justify-content-center">
         <%= link_to "EDITAR", edit_actor_path(@actor), class: "white-btn admin-show-btn" %>
-        <%= link_to "APAGAR", actor_path(@actor), class: "black-btn admin-show-btn", data: { turbo_method: "delete", turbo_confirm: "Apagar #{@actor.first_name} #{@actor.last_name}?"} %>
+        <%= link_to "APAGAR ATOR", actor_path(@actor), class: "black-btn admin-show-btn", data: { turbo_method: "delete", turbo_confirm: "Apagar #{@actor.first_name} #{@actor.last_name}?"} %>
       </div>
     <% end %>
   <% end %>

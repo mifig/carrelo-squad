@@ -32,7 +32,7 @@
 }
 
 .admin-show-btn {
-  width: 130px;
+  width: 150px;
   margin: 0 auto;
 }
 
@@ -109,15 +109,15 @@
   right: 6px;
   color: $white;
   text-shadow: 0px 0px 7px $black;
-  
+
   &:hover {
     color: $yellow;
   }
 }
 
-
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
   .admin-btn {
     display: none;
   }
 }
+
